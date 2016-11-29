@@ -21748,3 +21748,13 @@ sub {
     padding-top: calc(16px + 20px);
   }
 }
+
+.addIconHeader {
+  font-size: 28pt;
+}
+
+.item > ion-icon, .item-inner > ion-icon {
+  min-height: 2.2rem;
+  font-size: 2.2rem;
+  color: #acacac;
+}
