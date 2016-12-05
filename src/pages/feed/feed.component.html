@@ -1,11 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Nova
+      Eventos
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+    <div class="card" *ngFor="let item of feed | async">
+    <div class="item item-text-wrap">
+        {{item.title}}
+    </div>
+  </div>
+
+  <button class="button button-light">
+  button-light
+</button>
 
 </ion-content>
