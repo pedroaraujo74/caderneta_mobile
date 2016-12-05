@@ -1,34 +1,44 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-        AppNome
-    </ion-title>
-    <ion-buttons end>
-    <button (click)="openModal()">
+    <ion-navbar>
+        <ion-title>
+            AppNome
+        </ion-title>
+        <ion-buttons end>
+            <button (click)="presentModal()">
        <ion-icon class="addIconHeader" name="add" item-right></ion-icon>
     </button>
-</ion-buttons>
-  </ion-navbar>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-    <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
-    <ion-grid>
-        <ion-row>
-            <ion-col width-100>
+    <ion-list class="setBackground">
 
-                <!-- Cards Filhos -->
-                <ion-card *ngFor="let filho of filhos">
-                    <ion-list>
-                        <button ion-item detail-none>
-                            <ion-icon name="arrow-forward" item-right light></ion-icon>
-                            {{filho}}
-                        </button>
-                    </ion-list>
-                </ion-card>
-        
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+        <ion-list-header>
+            ENCARREGANDOS
+        </ion-list-header>
+
+        <ion-item-sliding *ngFor="let encarregando of encarregandos">
+
+            <ion-item>
+                <h2 class="paddingList">{{encarregando.nome}}</h2>
+                <ion-badge class="colorBadge" item-right>1</ion-badge>
+                <ion-icon class="arrowSpace" name="arrow-forward" item-right light></ion-icon>
+            </ion-item>
+
+            <ion-item-options side="right">
+                <button ion-button color="secondary">
+                    <ion-icon name="create"></ion-icon>
+                    Editar
+                </button>
+                <button ion-button color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                    Apagar
+                </button>
+            </ion-item-options>
+
+        </ion-item-sliding>
+    </ion-list>
+
 </ion-content>

@@ -1,0 +1,46 @@
+.contentLogin{
+   background-color:#FFF;
+}
+
+.logo{
+    background: url(../assets/img/logo.png);
+}
+
+/* ALL BUTTONS */
+.btnAll{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.iconSpacing{
+    margin-right: 15px;
+}
+
+.btnLogin{
+    width: 100%;
+}
+
+/* ROW */
+.spaceCol{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+/* GOOGLE BUTTON */
+.btnLoginGoogle .button-inner{
+    justify-content:flex-start;
+}
+
+/* FACEBOOK BUTTON */
+.btnLoginFacebook .button-inner{
+    justify-content:flex-start;
+}
+
+
+
+
+
+
+

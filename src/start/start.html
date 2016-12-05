@@ -1,0 +1,49 @@
+<ion-content class="contentLogin">
+
+    <div class="logo">
+
+    </div>
+
+    <div class="btnAll">
+
+        <ion-grid>
+
+            <!-- FACEBOOK BUTTON -->
+            <ion-row>
+                <ion-col width-100 class="spaceCol">
+                    <button ion-button  outline color="facebook" class="btnLogin btnLoginFacebook">
+                         <span class="button-inner">
+                            <ion-icon name="logo-facebook" class="iconSpacing"></ion-icon>
+                            Entrar via Facebook
+                        </span>
+                     </button>
+                </ion-col>
+            </ion-row>
+
+            <!-- GOOGLE BUTTON -->
+            <ion-row>
+                <ion-col width-100 class="spaceCol">
+                    <button ion-button outline color="google" class="btnLogin btnLoginGoogle">
+                        <span class="button-inner">
+                            <ion-icon name="logo-google" class="iconSpacing"></ion-icon>
+                            Entrar via Google
+                        </span>
+                    </button>
+                </ion-col>
+            </ion-row>
+            
+             <!-- LOGIN WITH EMAIL -->
+            <ion-row>
+                <ion-col width-100 class="spaceCol">
+                    <button ion-button outline color="primary" class="btnLogin btnLoginEmail" (click)="goregisto()">
+                        <ion-icon name="person" class="iconSpacing"></ion-icon>
+                        Entrar ou registar via email
+                    </button>
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+    </div>
+
+</ion-content>
