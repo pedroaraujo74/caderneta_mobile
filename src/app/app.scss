@@ -1,21 +1,67 @@
-// http://ionicframework.com/docs/v2/theming/
+//////////////
+//// ALL ////
+////////////
+
+// INPUTS ALIGN TEXT RIGHT PADDING
+.input-ios .text-input {
+    padding-right: 0!important;
+}
+
+.input-md .text-input {
+    padding-right: 0!important;
+}
+
+// INPUTS ALIGN TEXT RIGHT TEXT
+.label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input{
+    text-align: right;
+}
+
+.label-md + ion-input .text-input, .label-md + ion-textarea .text-input{
+    text-align: right;
+}
 
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+
+///////////////////////////
+//// LOGIN && REGISTO ////
+/////////////////////////
+
+//BUTTON BACK HEADER COLOR
+.navbarTopBlue > .bar-button-default{
+    color: #15A9FC; 
+}
+
+//TITULO HEADER AZUL
+.titleTopBlue > .toolbar-title{
+     color: #15A9FC; 
+}
+
+//LISTA BOTTOM SEM MARGIN
+.listBottom{
+    margin-bottom: 0;
+}
+
+// PAGES REGISTOS //
+
+// BUTTON SEGUINTE && FINALIZAR
+
+.btnSeguinteRegisto{
+    text-align: right
+}
+
+.btnSeguinteRegisto > .item-inner > ion-icon{
+    margin-left: 15px;
+    color:#FFF!important;
+}
 
 
+
+///////////////
+//// HOME ////
+/////////////
+
+
+/*
 .addIconHeader{
     font-size: 28pt;
 }
@@ -29,13 +75,8 @@
 
 // BARRA COM OS BOTÕES PARA AVANCAR
 .btnRegisto{
-    margin-bottom: 0
-}
-
-
-//LISTA BOTTOM SEM MARGIN
-.listBottom{
     margin-bottom: 0;
+    margin-top: 0;
 }
 
-
+*/

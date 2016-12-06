@@ -35,7 +35,8 @@ $colors: (
   blue1:      #1E3958,
   blue2:      #6EDAFD,
   grey:       #99A1A7,
-  labelInput: #7f7f7f
+  labelInput: #7f7f7f,
+  textColor:  #000
 );
 
 
@@ -78,13 +79,3 @@ $colors: (
 $ionicons-font-path: "../assets/fonts";
 @import "ionicons";
 
-
-$list-background-color: #fff;
-
-.input-ios .text-input {
-    padding-right: 0!important;
-}
-
-.label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input{
-    text-align: right;
-}

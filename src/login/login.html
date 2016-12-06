@@ -1,9 +1,9 @@
-<ion-header color="white">
-  <ion-navbar color="white">
-    <ion-title>
-      Entrar
-    </ion-title>
-  </ion-navbar>
+<ion-header>
+    <ion-navbar color="white" class="navbarTopBlue">
+        <ion-title class="titleTopBlue">
+            Entrar
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 
@@ -13,14 +13,14 @@
 
     <!-- EMAIL -->
     <ion-item>
-      <ion-icon name="mail" item-left></ion-icon>
+      <ion-icon name="mail" item-left class="iconColor"></ion-icon>
       <ion-label>Email</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
-
+  
     <!-- PASSWORD -->
     <ion-item>
-      <ion-icon name="key" item-left></ion-icon>
+      <ion-icon name="key" item-left class="iconColor"></ion-icon>
       <ion-label>Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
@@ -28,10 +28,10 @@
   </ion-list>
 
   <!-- BUTTON ENTRAR -->
-  <button ion-button full color="primary" type="submit">
-        <ion-icon name="arrow-round-forward" class="iconLoginBtn">
-        </ion-icon>
-    </button>
+  <button ion-button full color="primary" type="submit" class="submitButton">
+      <ion-icon name="arrow-round-forward" class="iconLoginBtn">
+      </ion-icon>
+  </button>
 
     {{err}}
   </form>

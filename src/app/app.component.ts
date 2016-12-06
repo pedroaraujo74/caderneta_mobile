@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-//import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../pages/tabs/tabs';
 
-import { StartPage } from '../start/start';
+//import { StartPage } from '../start/start';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { StartPage } from '../start/start';
 
 export class MyApp {
   
-  rootPage = StartPage;
+  rootPage = TabsPage;
  
   constructor(platform: Platform) {
     platform.ready().then(() => {

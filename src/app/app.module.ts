@@ -22,6 +22,8 @@ import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { RegistoPage_2 } from '../registo/registo_page2/registo2';
 import { RegistoPage_3 } from '../registo/registo_page3/registo3';
 
+//PERFIL
+import { PerfilComponent } from '../pages/encarregadoEducacao/perfil/perfil.component';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyDMuTuGTOL0hANsZ7ZS11rY9vZtYABUVbM',
@@ -52,6 +54,9 @@ const myFirebaseAuthConfig = {
     RegistoPage_2,
     RegistoPage_3,
 
+    //PERFIL
+    PerfilComponent,
+
     FeedComponent,
     ChatComponent,
     HomePage,
@@ -79,10 +84,13 @@ const myFirebaseAuthConfig = {
     RegistoPage_2,
     RegistoPage_3,
 
+    //PERFIL
+    PerfilComponent,
+
     FeedComponent,
     ChatComponent,
     HomePage,
-    Disciplinas,
+    //Disciplinas,
     ModalEncarregandos,
     TabsPage
 

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HomePage } from '../encarregadoEducacao/home/home';
 import { FeedComponent } from '../feed/feed.component';
 import { ChatComponent } from '../chat/chat.component';
+import { PerfilComponent } from '../encarregadoEducacao/perfil/perfil.component';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -13,6 +14,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = FeedComponent;
   tab3Root: any = ChatComponent;
+  tab4Root: any = PerfilComponent;
 
   constructor() {
       

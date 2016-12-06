@@ -1,13 +1,14 @@
-.iconLoginBtn{
-    font-size: 44px;
+//INPUT ICONS COLOR
+.iconColor{
+    color:#7f7f7f!important;
 }
 
-
-
-.toolbar-title {
-     color: #15A9FC!important; 
+//ANDROID
+.submitButton .icon-md{
+    font-size: 24px
 }
 
-.toolbar-ios-white .bar-button-default-ios {
-    color: #15A9FC!important; 
+//IOS
+.submitButton .icon-ios{
+    font-size: 44px
 }

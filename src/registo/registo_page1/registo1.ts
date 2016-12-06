@@ -6,7 +6,7 @@ import { AngularFire, FirebaseAuthState } from 'angularfire2';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { User } from './registo.interface'
 @Component({
-  templateUrl: 'registo1.html'
+  templateUrl: 'registo1.html',
 })
 
 export class RegistoPage_1 implements OnInit {
