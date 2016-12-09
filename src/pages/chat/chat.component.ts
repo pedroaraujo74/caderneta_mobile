@@ -7,7 +7,7 @@ import { AngularFire } from 'angularfire2';
   selector: 'chat',
   templateUrl: 'chat.component.html'
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent2 implements OnInit {
   texto: any;
   body: any;
   user: any;

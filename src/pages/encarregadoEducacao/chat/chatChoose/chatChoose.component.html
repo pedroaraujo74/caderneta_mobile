@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="primary">
+         <ion-title>Chat</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- LISTA ENCARREGANDOS -->
+  <ion-list>
+      <ion-list-header>
+          Escolher encarregando
+      </ion-list-header>
+      <button ion-item class="chatChooseList" (click)="chatList()"> 
+          <h2 class="paddingList">André Martins</h2>
+          <ion-badge color="primary" item-right>1</ion-badge>
+      </button>
+      <button ion-item class="chatChooseList"> 
+          <h2 class="paddingList">Pedro Araújo</h2>
+          <ion-badge color="primary" item-right>20</ion-badge>
+      </button>
+      <button ion-item class="chatChooseList"> 
+          <h2 class="paddingList">Vasco Silva</h2>
+          <ion-badge color="primary" item-right>1</ion-badge>
+      </button>
+  </ion-list>
+</ion-content>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Disciplinas } from '../disciplinas/disciplinas';
+import { DisciplinasComponent } from '../disciplinas/disciplinas.component';
 
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
@@ -49,7 +49,7 @@ export class HomePage {
 
 
   openDisciplinas(event, item) {
-    this.navCtrl.push(Disciplinas, {
+    this.navCtrl.push(DisciplinasComponent, {
       encarregando_id: item,
 
     });

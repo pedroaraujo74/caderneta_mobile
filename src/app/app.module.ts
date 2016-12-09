@@ -5,9 +5,9 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { FeedComponent } from '../pages/feed/feed.component';
-import { ChatComponent } from '../pages/chat/chat.component';
+import { ChatComponent2 } from '../pages/chat/chat.component';
 import { HomePage } from '../pages/encarregadoEducacao/home/home';
-import { Disciplinas } from '../pages/encarregadoEducacao/disciplinas/disciplinas';
+import { DisciplinasComponent } from '../pages/encarregadoEducacao/disciplinas/disciplinas.component';
 import { ModalEncarregandos } from '../pages/encarregadoEducacao/home/addModal/modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -24,6 +24,12 @@ import { RegistoPage_3 } from '../registo/registo_page3/registo3';
 
 //PERFIL
 import { PerfilComponent } from '../pages/encarregadoEducacao/perfil/perfil.component';
+
+//CHAT
+import { ChatChooseComponent } from '../pages/encarregadoEducacao/chat/chatChoose/chatChoose.component';
+import { ChatListComponent } from '../pages/encarregadoEducacao/chat/chatList/chatList.component';
+import { ChatMensageComponent } from '../pages/encarregadoEducacao/chat/chatMensage/chatMensage.component';
+
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyDMuTuGTOL0hANsZ7ZS11rY9vZtYABUVbM',
@@ -57,10 +63,20 @@ const myFirebaseAuthConfig = {
     //PERFIL
     PerfilComponent,
 
+    //CHAT
+    ChatChooseComponent,
+    ChatListComponent,
+    ChatMensageComponent,
+    
+
+    //DISCIPLINAS
+    DisciplinasComponent,
+
     FeedComponent,
-    ChatComponent,
+    ChatComponent2,
     HomePage,
-    Disciplinas,
+
+    
     ModalEncarregandos,
     TabsPage
 
@@ -87,10 +103,18 @@ const myFirebaseAuthConfig = {
     //PERFIL
     PerfilComponent,
 
+    //CHAT
+    ChatChooseComponent,
+    ChatListComponent,
+    ChatMensageComponent,
+
+    //DISCIPLINAS
+    DisciplinasComponent,
+
     FeedComponent,
-    ChatComponent,
+    ChatComponent2,
     HomePage,
-    //Disciplinas,
+    
     ModalEncarregandos,
     TabsPage
 
