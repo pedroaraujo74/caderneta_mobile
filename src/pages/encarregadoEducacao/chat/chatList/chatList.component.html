@@ -2,7 +2,7 @@
     <ion-navbar color="primary">
       <ion-searchbar (input)="getItems($event)"></ion-searchbar>
       <ion-buttons end class="novaMensagem">
-            <button ion-button icon-only (click)="presentModal()">
+            <button ion-button icon-only (click)="chatNew()">
                 <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
             </button>
         </ion-buttons>
@@ -18,10 +18,29 @@
                 <ion-avatar item-left class="avatarListChat">
                   <img src="assets/img/lel.png">
                 </ion-avatar>
-                <h2 color="primary">Matemática</h2>
-                <h3>André Martins</h3>
+                <h2 class="mensagemOn" color="primary">Matemática</h2>
+                <h3 class="mensagemOn">André Martins</h3>
+                <p class="mensagemOnC">Bla bla bla blaaaaaa</p>
+                <ion-note item-right class="timeChat mensagemOnC">3:43</ion-note>
+            </ion-item>
+
+            <ion-item-options>
+                <button ion-button color="danger" icon-left>
+                    <ion-icon name="trash"></ion-icon>
+                    Eliminar
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item-sliding class="listChatTop">
+            <ion-item class="listChat" (click)="chatMensage()">
+                <ion-avatar item-left class="avatarListChat">
+                  <img src="assets/img/lel.png">
+                </ion-avatar>
+                <h2 color="primary">Inglês</h2>
+                <h3>Vasco Silva</h3>
                 <p>Bla bla bla blaaaaaa</p>
-                <ion-note item-right class="timeChat">3:43 pm</ion-note>
+                <ion-note item-right class="timeChat">12:00</ion-note>
             </ion-item>
 
             <ion-item-options>

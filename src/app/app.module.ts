@@ -29,6 +29,7 @@ import { PerfilComponent } from '../pages/encarregadoEducacao/perfil/perfil.comp
 import { ChatChooseComponent } from '../pages/encarregadoEducacao/chat/chatChoose/chatChoose.component';
 import { ChatListComponent } from '../pages/encarregadoEducacao/chat/chatList/chatList.component';
 import { ChatMensageComponent } from '../pages/encarregadoEducacao/chat/chatMensage/chatMensage.component';
+import { ChatNewComponent } from '../pages/encarregadoEducacao/chat/chatNew/chatNew.component';
 
 
 const myFirebaseConfig = {
@@ -67,6 +68,7 @@ const myFirebaseAuthConfig = {
     ChatChooseComponent,
     ChatListComponent,
     ChatMensageComponent,
+    ChatNewComponent,
     
 
     //DISCIPLINAS
@@ -107,6 +109,7 @@ const myFirebaseAuthConfig = {
     ChatChooseComponent,
     ChatListComponent,
     ChatMensageComponent,
+    ChatNewComponent,
 
     //DISCIPLINAS
     DisciplinasComponent,

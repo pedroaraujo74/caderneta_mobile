@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular'
 import { ChatMensageComponent } from '../chatMensage/chatMensage.component'
+import { ChatNewComponent } from '../chatNew/chatNew.component'
 
 @Component({
   selector: 'page-ChatListComponent',
@@ -14,7 +15,11 @@ export class ChatListComponent {
   }
 
   chatMensage(){
-        this.navCtrl.push(ChatMensageComponent)
+      this.navCtrl.push(ChatMensageComponent)
+  }
+
+  chatNew(){
+      this.navCtrl.push(ChatNewComponent)
   }
 
 }
