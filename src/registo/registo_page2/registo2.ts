@@ -11,6 +11,7 @@ import { LoginPage } from '../../login/login'
 })
 
 export class RegistoPage_2 implements OnInit {
+  myDate: any;
   form: any;
   body: any;
   codigo: any;

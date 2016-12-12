@@ -1,11 +1,13 @@
 <ion-header>
     <ion-navbar color="primary">
-      <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+      <ion-searchbar></ion-searchbar>
+      <!--
       <ion-buttons end class="novaMensagem">
             <button ion-button icon-only (click)="chatNew()">
                 <ion-icon ios="ios-create-outline" md="md-create"></ion-icon>
             </button>
         </ion-buttons>
+      -->
      </ion-navbar>
 </ion-header>
 
@@ -13,17 +15,22 @@
     <!-- LISTA CONVERSAS -->
     <ion-list>
 
+<!-- ******************* 
+     *******************
+     .mensagemOn e mensagemOnC ======> Quando tem notificação
+-->
+<div *ngFor="let item of professores | async">
+  <div *ngIf="item.codigo_turmas[0] == turma || item.codigo_turmas[1] == turma || item.codigo_turmas[2] == turma || item.codigo_turmas[3] == turma  || item.codigo_turmas[4] == turma || item.codigo_turmas[5] == turma || item.codigo_turmas[6] == turma">
         <ion-item-sliding class="listChatTop">
-            <ion-item class="listChat" (click)="chatMensage()">
+            <ion-item class="listChat" (click)="chatMensage($event, item.$key)">
                 <ion-avatar item-left class="avatarListChat">
-                  <img src="assets/img/lel.png">
+                  <img [src]="item.photoUrl">
                 </ion-avatar>
-                <h2 class="mensagemOn" color="primary">Matemática</h2>
-                <h3 class="mensagemOn">André Martins</h3>
-                <p class="mensagemOnC">Bla bla bla blaaaaaa</p>
+                <h2 class="mensagemOn" color="primary">{{item.disciplina}}</h2>
+                <h3 class="mensagemOn">{{item.name}}</h3>
+                <p class="mensagemOnC"></p>
                 <ion-note item-right class="timeChat mensagemOnC">3:43</ion-note>
             </ion-item>
-
             <ion-item-options>
                 <button ion-button color="danger" icon-left>
                     <ion-icon name="trash"></ion-icon>
@@ -31,26 +38,9 @@
                 </button>
             </ion-item-options>
         </ion-item-sliding>
+      </div>
 
-        <ion-item-sliding class="listChatTop">
-            <ion-item class="listChat" (click)="chatMensage()">
-                <ion-avatar item-left class="avatarListChat">
-                  <img src="assets/img/lel.png">
-                </ion-avatar>
-                <h2 color="primary">Inglês</h2>
-                <h3>Vasco Silva</h3>
-                <p>Bla bla bla blaaaaaa</p>
-                <ion-note item-right class="timeChat">12:00</ion-note>
-            </ion-item>
+  </div>
+</ion-list>
 
-            <ion-item-options>
-                <button ion-button color="danger" icon-left>
-                    <ion-icon name="trash"></ion-icon>
-                    Eliminar
-                </button>
-            </ion-item-options>
-        </ion-item-sliding>
-
-    </ion-list>
-     
 </ion-content>

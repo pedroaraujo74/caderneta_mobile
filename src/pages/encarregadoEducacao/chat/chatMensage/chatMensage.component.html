@@ -1,59 +1,77 @@
 <ion-header class="mensageHeaderTitle">
     <ion-navbar color="primary">
-      <ion-title>Matemática<br><div>Pedro Araújo</div></ion-title>
+
+      <ion-title>{{professor.disciplina}}<br>
+        <div>{{professor.name}}</div></ion-title>
+
      </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content #content>
 
         <ion-grid class="gridList">
-
+          <div *ngFor="let mensagem of chat | async">
+          <div *ngIf="mensagem.from == 0" style="text-align: left;">
             <ion-row class="rowlist">
                 <ion-col width-10 class="col10">
                     <div class="chatAvatar">
-                        <img src="assets/img/lel.png">
+                        <img [src]="professor?.photoUrl">
                     </div>
                 </ion-col>
                 <ion-col width-90>
                     <div class="chatMensageLeft">
-                        O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay O VASCO é gay. 
+                          {{mensagem?.mensagem}}
                     </div>
                 </ion-col>
             </ion-row>
-            <ion-row>
+
+
+
+<!--
+           <ion-row>
                 <ion-col width-100 class="time">
                     10:22
                 </ion-col>
             </ion-row>
+            -->
+            </div>
+
+
+            <div *ngIf="mensagem.from == 1" style="text-align: left;">
 
             <ion-row class="rowlist">
-                <ion-col width-90>
+                <ion-col width-100>
                     <div class="chatMensage">
-                        O VASCO é gay O VASCO é gay O VASCO é gay. 
-                    </div>
-                </ion-col>
-                <ion-col width-10 class="col10right">
-                    <div class="chatAvatar">
-                        <img src="assets/img/simmm.png">
+                        {{mensagem?.mensagem}}
                     </div>
                 </ion-col>
             </ion-row>
+
+            <!--
             <ion-row>
                 <ion-col width-100 class="time">
                     10:24
                 </ion-col>
             </ion-row>
-        </ion-grid>
-        
+          -->
+      </div>
+      </div>
+
+    </ion-grid>
+
 </ion-content>
+
 
 <ion-footer keyboard-attach>
     <div class="topBorder">
         <ion-item class="sendButton">
-            <ion-input type="text" placeholder="Escreva uma mensagem..."></ion-input>
+            <ion-input type="text" placeholder="Escreva uma mensagem..." [(ngModel)]="texto"></ion-input>
             <ion-note item-right>
-                <button ion-button clear><ion-icon name="send"></ion-icon></button>
+                <button ion-button clear (click)="enviar()"><ion-icon name="send"></ion-icon></button>
             </ion-note>
         </ion-item>
-    </div>
+      </div>
+
+
+
 </ion-footer>

@@ -1,171 +1,188 @@
+<ion-header no-shadow>
+    <ion-toolbar color="primary" no-border no-shadow>
+        <div *ngIf="edit==0">
+            <ion-buttons end (click)="settings()">
+                <button ion-button icon-only>
+                    <ion-icon name="settings"></ion-icon>
+                </button>
+            </ion-buttons>
+        </div>
+        <div *ngIf="edit==1">
+            <ion-buttons start (click)="teste()" class="iosBtn">
+                <button ion-button icon-only>
+                    <ion-icon name="close"></ion-icon>
+                </button>
+            </ion-buttons>
+             <ion-buttons end (click)="settings()" class="iosBtn">
+                <button ion-button icon-only no-shadow (click)="editar(form.value, form.valid)" [disabled]="!form.valid" style="position: absolute; bottom: 0; right: 0">
+                    <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+                </button>
+            </ion-buttons>
+        </div>
+    </ion-toolbar>
+</ion-header>   
+
 <ion-content class="contentPerfil">
-
-    <div class="contentFotoTitle">
-
-        <!-- BUTTON EDITAR -->
-        <ion-buttons end class="btnEdit">
-            <button ion-button icon-only no-shadow (click)="presentModal()">
-                <ion-icon name="settings"></ion-icon>
-            </button>
-        </ion-buttons>
-        <!-- BUTTON EDITAR -->
-
-        <!-- BUTTON GUARDAR 
-        <ion-buttons end class="btnEdit btnGuardar">
-            <button ion-button icon-only no-shadow (click)="presentModal()">
-                <ion-icon ios="ios-checkmark" md="md-checkmark" class="iconSave"></ion-icon>
-            </button>
-        </ion-buttons>
-      BUTTON GUARDAR -->
-
-        <div class="perfilAvatar">
-            <img src="assets/img/lel.png">
+    <!-- se a edição estiver desativada -->
+    <div *ngIf="edit==0">
+        <div class="contentFotoTitle">
+            <div class="perfilAvatar">
+                <img [src]="perfil.photoUrl">
+            </div>
+            <div class="titleNameEdit">
+                <h1>{{perfil.firstName}} {{perfil.lastName}}</h1>
+            </div>
         </div>
-        <div class="btnEditarFoto">
-            <button ion-button>Editar</button>
-        </div>
-        <!-- Qualdo tiveres o modo de edição ativo tens que substituir a class titleName por titleNameEdit -->
-        <div class="titleNameEdit">
-            <!-- NOME TITLE -->
-            <h1>André Martins</h1>
+        <div class="backgoundColorPeril">
+            <ion-list class="itemInputColor">
+
+                <!-- DADOS PESSOAIS -->
+                <ion-list-header>
+                    Dados pessoais
+                </ion-list-header>
+
+                <ion-item>
+                    Nome próprio
+                    <ion-note item-right>
+                        {{perfil.firstName}}
+                    </ion-note>
+                </ion-item>
+
+                <ion-item>
+                    Apelido
+                    <ion-note item-right>
+                        {{perfil.lastName}}
+                    </ion-note>
+                </ion-item>
+
+                <ion-item>
+                    Data de nascimento
+                    <ion-note item-right>
+                        {{perfil.date}}
+                    </ion-note>
+                </ion-item>
+
+            </ion-list>
+
+            <ion-list class="itemInputColor">
+
+                <!-- CONTACTOS -->
+                <ion-list-header>
+                    Contactos
+                </ion-list-header>
+
+
+                <ion-item>
+                    Email
+                    <ion-note item-right>
+                        {{perfil.email}}
+                    </ion-note>
+                </ion-item>
+
+
+                <ion-item>
+                    Telemóvel
+                    <ion-note item-right>
+                        {{perfil.telemovel}}
+                    </ion-note>
+                </ion-item>
+
+            </ion-list>
+
+            <ion-list class="itemInputColor2">
+
+                <!-- ENCARREGANDOS -->
+                <ion-list-header>
+                    ENCARREGANDOS
+                </ion-list-header>
+
+
+                <ion-item class="encarregandosList">
+                    <h2>{{perfil.filho}}</h2>
+                    <ion-icon name="arrow-forward" item-right color="grey"></ion-icon>
+                </ion-item>
+
+            </ion-list>
+
+            <ion-list class="itemInputColor2">
+
+                <ion-item class="encarregandosList">
+                    <h2 style="text-align: center;" color="primary">Terminar sessão</h2>
+                </ion-item>
+
+            </ion-list>
         </div>
     </div>
 
-    <ion-list class="itemInputColor">
+    <div *ngIf="edit==1">
+        <div class="contentFotoTitle">
+            <div class="perfilAvatar">
+                <img [src]="perfil.photoUrl">
 
-        <!-- DADOS PESSOAIS -->
-        <ion-list-header>
-            Dados pessoais
-        </ion-list-header>
+                <div class="btnEditarFoto">
+                    <button ion-button>Editar</button>
+                </div>
 
-        <!-- OFF -->
-        <ion-item>
-            Nome próprio
-            <ion-note item-right>
-                André
-            </ion-note>
-        </ion-item>
-        <!-- OFF -->
+                <div class="titleNameEdit">
+                    <h1>{{perfil.firstName}} {{perfil.lastName}}</h1>
+                </div>
+            </div>
+        </div>
 
-        <!-- ON 
-        <ion-item class="ionItem">
-            <ion-label color="textColor">Nome próprio</ion-label>
-            <ion-input type="text" value="André"></ion-input>
-        </ion-item>
-         ON -->
+       <div class="backgoundColorPeril">
+        <form [formGroup]="form">
 
-        <!-- OFF
-        <ion-item>
-            Apelido
-            <ion-note item-right>
-                Martins
-            </ion-note>
-        </ion-item>
-        -->
+            <ion-list class="itemInputColor">
 
-        <!-- ON -->
-        <ion-item class="ionItem">
-            <ion-label color="textColor">Apelido</ion-label>
-            <ion-input type="text" value="Martins"></ion-input>
-        </ion-item>
-        <!-- ON -->
+                <ion-list-header>
+                    Dados pessoais
+                </ion-list-header>
 
-        <!-- OFF
-        <ion-item>
-            Data de nascimento
-            <ion-note item-right>
-                24/12/1972
-            </ion-note>
-        </ion-item>
-        OFF -->
+                <ion-item class="ionItem">
+                    <ion-label color="textColor">Nome próprio</ion-label>
+                    <ion-input type="text" value="{{perfil.firstName}}" formControlName="firstName"></ion-input>
+                </ion-item>
 
-        <!-- ON -->
-        <ion-item class="ionItem">
-            <ion-label color="textColor">Data de nascimento</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY" class="datetimeColor" [(ngModel)]="myDate"></ion-datetime>
-        </ion-item>
-        <!-- ON -->
+                <ion-item class="ionItem">
+                    <ion-label color="textColor">Apelido</ion-label>
+                    <ion-input type="text" value="{{perfil.lastName}}" formControlName="lastName"></ion-input>
+                </ion-item>
 
-    </ion-list>
+                <ion-item class="ionItem">
+                    <ion-label color="textColor">Data de nascimento</ion-label>
+                    <ion-input type="text"></ion-input>
+                    <ion-datetime displayFormat="DD/MM/YYYY" class="datetimeColor" formControlName="date"></ion-datetime>
+                </ion-item>
 
-    <ion-list class="itemInputColor">
+            </ion-list>
 
-        <!-- CONTACTOS -->
-        <ion-list-header>
-            Contactos
-        </ion-list-header>
+            <ion-list class="itemInputColor">
 
-        <!-- OFF
-        <ion-item>
-            Email
-            <ion-note item-right>
-                afcmartins@ua.pt
-            </ion-note>
-        </ion-item>
-        OFF -->
+                <ion-list-header>
+                    Contactos
+                </ion-list-header>
 
-        <!-- ON -->
-        <ion-item class="ionItem">
-            <ion-label color="textColor">Email</ion-label>
-            <ion-input type="text" value="afcmartins@ua.pt"></ion-input>
-        </ion-item>
-        <!-- ON -->
+                
 
-        <!--OFF
-        <ion-item>
-            Telemóvel
-            <ion-note item-right>
-                919191919
-            </ion-note>
-        </ion-item>
-        OFF -->
+                <ion-item class="ionItem">
+                    <ion-label color="textColor">Telemóvel</ion-label>
+                    <ion-input type="tel" value="{{perfil.telemovel}}" formControlName="telemovel"></ion-input>
+                </ion-item>
 
-        <!-- ON -->
-        <ion-item class="ionItem">
-            <ion-label color="textColor">Telemóvel</ion-label>
-            <ion-input type="text" value="911911911"></ion-input>
-        </ion-item>
-        <!-- ON -->
+            </ion-list>
 
-    </ion-list>
+            <ion-list class="itemInputColor2">
 
-    <ion-list class="itemInputColor2">
-        <!-- ENCARREGANDOS -->
-        <ion-list-header>
-            ENCARREGANDOS
-        </ion-list-header>
+                <ion-list-header>
+                    Educandos
+                </ion-list-header>
 
-        <!-- OFF
-        <ion-item class="encarregandosList">
-            <h2>Pedro Araújo</h2>
-            <ion-icon name="arrow-forward" item-right color="grey"></ion-icon>
-        </ion-item>
-        OFF -->
-
-        <!-- ON -->
-        <ion-item class="ionItem2">
-            <ion-input type="text" value="Pedro Araujo"></ion-input>
-        </ion-item>
-        <!-- ON -->
-
-        <!-- OFF
-        <ion-item class="encarregandosList">
-            <h2>Vasco Silva</h2>
-            <ion-icon name="arrow-forward" item-right color="grey"></ion-icon>
-        </ion-item>
-        OFF -->
-
-        <!-- ON -->
-        <ion-item class="ionItem2">
-            <ion-input type="text" value="Vasco Silva"></ion-input>
-        </ion-item>
-        <!-- ON -->
-
-        <!--INSERIR NOVO ENCARREGANDO // QUANDO ESTIVER O MODO DE EDIÇÃO ATIVO NÃO DÁ PARA INSERIR
-        <ion-item>
-            <ion-input type="text" placeholder="Adicionar encarregando..."></ion-input>
-        </ion-item>
-        INSERIR NOVO ENCARREGANDO-->
-
-    </ion-list>
+                <ion-item class="ionItem2">
+                    <ion-input type="text" value="{{perfil.filho}}" formControlName="filho"></ion-input>
+                </ion-item>
+            
+            </ion-list>
+        </form>
+        </div>
+    </div>
 </ion-content>

@@ -4,11 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { MyApp } from './app.component';
-import { FeedComponent } from '../pages/feed/feed.component';
-import { ChatComponent2 } from '../pages/chat/chat.component';
-import { HomePage } from '../pages/encarregadoEducacao/home/home';
-import { DisciplinasComponent } from '../pages/encarregadoEducacao/disciplinas/disciplinas.component';
-import { ModalEncarregandos } from '../pages/encarregadoEducacao/home/addModal/modal';
 import { TabsPage } from '../pages/tabs/tabs';
 
 // START
@@ -22,6 +17,10 @@ import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { RegistoPage_2 } from '../registo/registo_page2/registo2';
 import { RegistoPage_3 } from '../registo/registo_page3/registo3';
 
+//FEED
+import { FeedComponent } from '../pages/encarregadoEducacao/feed/feed.component';
+import { PopoverPage } from '../pages/encarregadoEducacao/feed/PopoverPage';
+
 //PERFIL
 import { PerfilComponent } from '../pages/encarregadoEducacao/perfil/perfil.component';
 
@@ -30,7 +29,10 @@ import { ChatChooseComponent } from '../pages/encarregadoEducacao/chat/chatChoos
 import { ChatListComponent } from '../pages/encarregadoEducacao/chat/chatList/chatList.component';
 import { ChatMensageComponent } from '../pages/encarregadoEducacao/chat/chatMensage/chatMensage.component';
 import { ChatNewComponent } from '../pages/encarregadoEducacao/chat/chatNew/chatNew.component';
+//import { FilterPipe2 } from '../pages/encarregadoEducacao/chat/chatList/filterPipe2';
 
+//NOTIFICAÇÕES
+import { NotificacoesComponent } from '../pages/encarregadoEducacao/notificacoes/notificacoes.component';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyDMuTuGTOL0hANsZ7ZS11rY9vZtYABUVbM',
@@ -42,9 +44,6 @@ const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password,
 }
-
-
-
 
 @NgModule({
   declarations: [
@@ -61,6 +60,10 @@ const myFirebaseAuthConfig = {
     RegistoPage_2,
     RegistoPage_3,
 
+    //FEED
+    FeedComponent,
+    PopoverPage,
+
     //PERFIL
     PerfilComponent,
 
@@ -69,17 +72,12 @@ const myFirebaseAuthConfig = {
     ChatListComponent,
     ChatMensageComponent,
     ChatNewComponent,
-    
+    //FilterPipe2,
 
-    //DISCIPLINAS
-    DisciplinasComponent,
+    //NOTIICACOES
+    NotificacoesComponent,
 
-    FeedComponent,
-    ChatComponent2,
-    HomePage,
-
-    
-    ModalEncarregandos,
+    //TABS
     TabsPage
 
   ],
@@ -102,23 +100,24 @@ const myFirebaseAuthConfig = {
     RegistoPage_2,
     RegistoPage_3,
 
-    //PERFIL
-    PerfilComponent,
+    //FEED
+    FeedComponent,
+    PopoverPage,
 
     //CHAT
     ChatChooseComponent,
     ChatListComponent,
     ChatMensageComponent,
     ChatNewComponent,
+    //FilterPipe2,
 
-    //DISCIPLINAS
-    DisciplinasComponent,
+    //NOTIICACOES
+    NotificacoesComponent,
 
-    FeedComponent,
-    ChatComponent2,
-    HomePage,
-    
-    ModalEncarregandos,
+    //PERFIL
+    PerfilComponent,
+
+    //TABS
     TabsPage
 
   ],

@@ -1,3 +1,8 @@
+.bottomCenas{
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+}
 .headerPerfil > .toolbar-background {
     border: none;
 }
@@ -7,13 +12,16 @@
      padding-bottom: 5px;  
 }
 
-.btnEdit > .button-md{
+.btnEditarFoto > .button-md{
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0);
+}
+
+.btnEdit > .button-md{
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0)
 }
 
 .perfilAvatar{
     text-align: center;
-    margin-top: -15px;
 }
 
 .perfilAvatar > img{
@@ -21,6 +29,12 @@
     height: 90px;
     border-radius: 100%;
     border: 4px solid #FFF;
+    object-fit: cover;
+}
+
+
+.iosBtn > .bar-button-ios > .button-inner > ion-icon{
+    font-size:2.2em; 
 }
 
 
@@ -49,12 +63,6 @@
     font-size: 2.2rem;
 }
 
-.btnGuardar > button > .button-inner > .icon-ios{
-    font-size: 54px !important;
-    padding-right: 0.2em!important;
-    padding-left: 0.2em!important;
-}
-
 .itemInputColor > .ionItem > .item-inner > .input-wrapper > ion-input > input {
     color: #99A1A7;
 }
@@ -75,7 +83,15 @@
     color: #15A9FC!important;
 }
 
+.itemInputColor > .ionItem > .item-inner > .input-wrapper > ion-input > input[type=tel]:focus {
+    color: #15A9FC!important;
+}
+
 .itemInputColor2 > .ionItem2 > .item-inner > .input-wrapper > ion-input > input[type=text]:focus {
+    color: #15A9FC!important;
+}
+
+.itemInputColor2 > .ionItem2 > .item-inner > .input-wrapper > ion-input > input[type=tel]:focus {
     color: #15A9FC!important;
 }
 
