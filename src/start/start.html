@@ -1,16 +1,20 @@
 <ion-content class="contentLogin">
-    
+    <!--
+    <div class="logo">
+        <img src="assets/img/logoEntradaWhite.png">
+    </div>
+    -->
     <div class="btnAll">
 
         <ion-grid>
 
             <!-- FACEBOOK BUTTON -->
             <ion-row>
-                <ion-col width-100 class="spaceCol">
-                    <button ion-button  outline color="facebook" class="btnLogin btnLoginFacebook">
+                <ion-col width-100 class="spaceCol" >
+                    <button ion-button full class="btnLogin btnLoginFacebook">
                          <span class="button-inner">
-                            <ion-icon name="logo-facebook" class="iconSpacing"></ion-icon>
-                            Entrar via Facebook
+                            <ion-icon name="logo-facebook" color="facebook" class="iconSpacing"></ion-icon>
+                            <span color="facebook">Entrar via Facebook</span>
                         </span>
                      </button>
                 </ion-col>
@@ -18,11 +22,11 @@
 
             <!-- GOOGLE BUTTON -->
             <ion-row>
-                <ion-col width-100 class="spaceCol">
-                    <button ion-button outline color="google" class="btnLogin btnLoginGoogle">
+                <ion-col width-100 class="spaceCol" >
+                    <button ion-button full class="btnLogin btnLoginGoogle">
                         <span class="button-inner">
-                            <ion-icon name="logo-google" class="iconSpacing"></ion-icon>
-                            Entrar via Google
+                            <ion-icon name="logo-google" color="google" class="iconSpacing"></ion-icon>
+                            <span color="google">Entrar via Google</span>
                         </span>
                     </button>
                 </ion-col>
@@ -30,10 +34,10 @@
             
              <!-- LOGIN WITH EMAIL -->
             <ion-row>
-                <ion-col width-100 class="spaceCol">
-                    <button ion-button outline color="primary" class="btnLogin btnLoginEmail" (click)="goregisto()">
-                        <ion-icon name="person" class="iconSpacing"></ion-icon>
-                        Entrar ou registar via email
+                <ion-col width-100 class="spaceCol" >
+                    <button ion-button full class="btnLogin btnLoginEmail" (click)="goregisto()">
+                        <ion-icon name="person" color="primary" class="iconSpacing"></ion-icon>
+                        <span color="primary">Entrar ou registar via email</span>
                     </button>
                 </ion-col>
             </ion-row>

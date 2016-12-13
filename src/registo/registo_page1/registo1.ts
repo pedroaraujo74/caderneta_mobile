@@ -26,10 +26,7 @@ export class RegistoPage_1 implements OnInit {
     });
   }
 
-
   registar(model: User, isValid: boolean) {
-
-
 
     this.body = {
       email: model.email,

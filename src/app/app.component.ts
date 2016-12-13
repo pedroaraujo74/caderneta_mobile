@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+//import { TabsPage } from '../pages/tabs/tabs';
 
-//import { StartPage } from '../start/start';
+import { StartPage } from '../start/start';
 
+//import { RegistoPage_2 } from '../registo/registo_page2/registo2';
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`
@@ -13,7 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 export class MyApp {
   
-  rootPage = TabsPage;
+  rootPage = StartPage;
   
   constructor(platform: Platform) {
     

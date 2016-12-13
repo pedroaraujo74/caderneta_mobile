@@ -15,7 +15,6 @@ import { LoginPage } from '../login/login';
 // REGISTO
 import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { RegistoPage_2 } from '../registo/registo_page2/registo2';
-import { RegistoPage_3 } from '../registo/registo_page3/registo3';
 
 //FEED
 import { FeedComponent } from '../pages/encarregadoEducacao/feed/feed.component';
@@ -58,7 +57,6 @@ const myFirebaseAuthConfig = {
     //REGISTO OR LOGIN
     RegistoPage_1,
     RegistoPage_2,
-    RegistoPage_3,
 
     //FEED
     FeedComponent,
@@ -98,7 +96,6 @@ const myFirebaseAuthConfig = {
     //REGISTO OR LOGIN
     RegistoPage_1,
     RegistoPage_2,
-    RegistoPage_3,
 
     //FEED
     FeedComponent,

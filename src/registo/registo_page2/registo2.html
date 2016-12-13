@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-navbar color="white" class="navbarTopBlue">
-        <ion-title class="titleTopBlue">
+    <ion-navbar color="primary">
+        <ion-title>
             Perfil
         </ion-title>
     </ion-navbar>
@@ -12,13 +12,13 @@
 
             <!-- PRIMEIRO NOME -->
             <ion-item>
-                <ion-label>Primeiro nome</ion-label>
+                <ion-label>Nome próprio</ion-label>
                 <ion-input type="text" formControlName="firstName"></ion-input>
             </ion-item>
 
             <!-- ULTIMO NOME -->
             <ion-item>
-                <ion-label>Último nome</ion-label>
+                <ion-label>Apelido</ion-label>
                 <ion-input type="text" formControlName="lastName"></ion-input>
             </ion-item>
 
@@ -40,7 +40,7 @@
 
             <ion-item>
                 <ion-label color="labelInput">Masculino</ion-label>
-                <ion-radio value="0"></ion-radio>
+                <ion-radio value="0" checked="true"></ion-radio>
             </ion-item>
 
             <ion-item>
@@ -50,12 +50,12 @@
         </ion-list>
 
         <!-- BUTTON SEGUINTE -->
-        <ion-footer color="primary">
+        <ion-footer>
 
             <ion-list no-lines class="listBottom">
-                <ion-item color="primary" class="btnSeguinteRegisto" (click)="concluir(form.value, form.valid)">
+                <ion-item color="blue1" class="btnSeguinteRegisto" (click)="concluir(form.value, form.valid)">
                     FINALIZAR
-                    <ion-icon name="arrow-forward" color="white" item-right class="iconBtnSeguinteRegisto"></ion-icon>
+                    <ion-icon name="arrow-forward" item-right class="iconBtnSeguinteRegisto"></ion-icon>
                 </ion-item>
             </ion-list>
 

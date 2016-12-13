@@ -61555,43 +61555,25 @@ sub {
   text-align: center;
 }
 
-/*
-.btnSeguinteRegisto{
-    text-align: right
-}
-
-.iconBtnSeguinteRegisto {
-    margin-left: 15px;
-}
-
-
-.item > ion-icon, .item-inner > ion-icon {
-    color: #FFF;
-}
-
-item-ios ion-icon[item-left], .item-ios ion-icon[item-right] {
-    margin-left: 10px;
-}
-*/
 .contentLogin {
-  background-image: url("../assets/img/imageStartPage3.png");
+  background-image: url("../assets/img/entrada.png");
   background-size: cover;
 }
 
 .logo {
-  margin-top: 50px;
   text-align: center;
+  margin-top: 20%;
 }
 
 .logo img {
-  max-width: 200px;
-  text-align: center;
+  width: 163px;
+  height: 155.5px;
 }
 
 /* ALL BUTTONS */
 .btnAll {
   position: absolute;
-  bottom: 20px;
+  bottom: 10%;
   width: 100%;
 }
 
@@ -61601,6 +61583,7 @@ item-ios ion-icon[item-left], .item-ios ion-icon[item-right] {
 
 .btnLogin {
   width: 100%;
+  background-color: white;
 }
 
 /* ROW */
@@ -61618,6 +61601,12 @@ item-ios ion-icon[item-left], .item-ios ion-icon[item-right] {
 
 /* FACEBOOK BUTTON */
 .btnLoginFacebook .button-inner {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.btnLoginEmail .button-inner {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;

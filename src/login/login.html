@@ -1,6 +1,6 @@
-<ion-header>
-    <ion-navbar color="white" class="navbarTopBlue">
-        <ion-title class="titleTopBlue">
+<ion-header >
+    <ion-navbar color="primary" no-border>
+        <ion-title>
             Entrar
         </ion-title>
     </ion-navbar>
@@ -9,7 +9,7 @@
 
 <ion-content>
   <form [formGroup]="form" novalidate (ngSubmit)="login(form.value, form.valid)">
-  <ion-list class="listTop">
+  <ion-list>
 
     <!-- EMAIL -->
     <ion-item>
@@ -32,15 +32,24 @@
       <ion-icon name="arrow-round-forward" class="iconLoginBtn">
       </ion-icon>
   </button>
-
     {{err}}
   </form>
 
-  <!-- BUTTON REGISTAR -->
-  <ion-footer>
-    <button ion-button full (click)="registo1()" class="btnRegisto" color="blue1">
-            Registe-se
-        </button>
-  </ion-footer>
+    <ion-footer>
+        <ion-list no-lines class="listBottom">
+            <ion-item color="blue1" (click)="registo1()" style="text-align:center">
+                  Registe-se
+            </ion-item>
+        </ion-list>
+    </ion-footer>
 
 </ion-content>
+<!--
+<ion-footer>
+    <ion-toolbar>
+        <button ion-button full (click)="registo1()" class="btnRegisto" color="blue1">
+            Registe-se
+        </button>
+    </ion-toolbar>
+</ion-footer>
+-->
