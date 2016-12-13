@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AngularFire } from 'angularfire2';
 
@@ -14,9 +14,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class LoginPage implements OnInit {
   rootPage: any = TabsPage;
   form: any;
-  err: any;
+  erroVazio: string = 'You must include credentials to use this auth method.';
 
-  constructor(public navCtrl: NavController, public af: AngularFire, public _fb: FormBuilder) {
+  constructor(public navCtrl: NavController, public af: AngularFire, public _fb: FormBuilder, public toastCtrl: ToastController) {
 
   }
 
@@ -33,16 +33,35 @@ export class LoginPage implements OnInit {
 
   login(model: User, isValid: boolean) {
 
-    console.log(model);
-
-
     this.af.auth.login(model).then(res => {
-      console.log(res);
       this.navCtrl.setRoot(TabsPage);
 
 
     }).catch(err => {
-      this.err = err.message;
-    })
-  }
+      
+      if(err.toString() == this.erroVazio){
+          let toast0 = this.toastCtrl.create({
+            message: 'Preencha o(s) campo(s)',
+            duration: 3000
+            });
+            toast0.present();
+      }
+
+      switch (err.code){
+         case "auth/invalid-email":
+            let toast1 = this.toastCtrl.create({
+            message: 'Email mal formatado',
+            duration: 3000
+            });
+            toast1.present();
+
+         case "auth/wrong-password":
+            let toast2 = this.toastCtrl.create({
+            message: 'Password incorreta',
+            duration: 3000
+            });
+            toast2.present();        
+        }
+      })
+    } 
 }

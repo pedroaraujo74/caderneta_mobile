@@ -26,7 +26,6 @@ export class MyApp {
       StatusBar.overlaysWebView(true);
       StatusBar.backgroundColorByHexString('#15A9FC')
       
-     
     });
 
   }

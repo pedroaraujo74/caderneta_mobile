@@ -61262,6 +61262,10 @@ sub {
 }
 
 */
+.toast-message {
+  background-color: #f53d3d;
+}
+
 .iconColor {
   color: #7f7f7f !important;
 }
