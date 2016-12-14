@@ -15,6 +15,9 @@ import { LoginPage } from '../login/login';
 // REGISTO
 import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { RegistoPage_2 } from '../registo/registo_page2/registo2';
+import { RegistoSocial } from '../registo/registo_social/registo_social';
+import { AuthService } from '../start/registo-service';
+
 
 //FEED
 import { FeedComponent } from '../pages/encarregadoEducacao/feed/feed.component';
@@ -57,6 +60,7 @@ const myFirebaseAuthConfig = {
     //REGISTO OR LOGIN
     RegistoPage_1,
     RegistoPage_2,
+    RegistoSocial,
 
     //FEED
     FeedComponent,
@@ -96,6 +100,7 @@ const myFirebaseAuthConfig = {
     //REGISTO OR LOGIN
     RegistoPage_1,
     RegistoPage_2,
+    RegistoSocial,
 
     //FEED
     FeedComponent,
@@ -118,6 +123,7 @@ const myFirebaseAuthConfig = {
     TabsPage
 
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+  providers: [AuthService]
+  
 })
 export class AppModule { }

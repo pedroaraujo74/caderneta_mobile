@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { AngularFire } from 'angularfire2';
-
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { Http } from '@angular/http'
 import { User } from './login.interface'
 import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -16,7 +16,7 @@ export class LoginPage implements OnInit {
   form: any;
   erroVazio: string = 'You must include credentials to use this auth method.';
 
-  constructor(public navCtrl: NavController, public af: AngularFire, public _fb: FormBuilder, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public af: AngularFire, public _fb: FormBuilder, public toastCtrl: ToastController, private http: Http) {
 
   }
 
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
             });
             toast0.present();
       }
-
+/*
       switch (err.code){
          case "auth/invalid-email":
             let toast1 = this.toastCtrl.create({
@@ -62,6 +62,15 @@ export class LoginPage implements OnInit {
             });
             toast2.present();        
         }
+
+        */
       })
+      
     } 
+    
+
+
+
+
+  
 }

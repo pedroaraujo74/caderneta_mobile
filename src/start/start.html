@@ -11,7 +11,7 @@
             <!-- FACEBOOK BUTTON -->
             <ion-row>
                 <ion-col width-100 class="spaceCol" >
-                    <button ion-button full class="btnLogin btnLoginFacebook">
+                    <button ion-button full class="btnLogin btnLoginFacebook" (click)="signInWithFacebook()">
                          <span class="button-inner">
                             <ion-icon name="logo-facebook" color="facebook" class="iconSpacing"></ion-icon>
                             <span color="facebook">Entrar via Facebook</span>
@@ -23,7 +23,7 @@
             <!-- GOOGLE BUTTON -->
             <ion-row>
                 <ion-col width-100 class="spaceCol" >
-                    <button ion-button full class="btnLogin btnLoginGoogle">
+                    <button ion-button full class="btnLogin btnLoginGoogle" (click)="loginGoogle()">
                         <span class="button-inner">
                             <ion-icon name="logo-google" color="google" class="iconSpacing"></ion-icon>
                             <span color="google">Entrar via Google</span>

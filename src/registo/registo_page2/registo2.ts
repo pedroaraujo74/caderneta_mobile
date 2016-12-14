@@ -17,6 +17,8 @@ export class RegistoPage_2 implements OnInit {
   codigo: any;
   uid: any;
   rootPage: any = LoginPage;
+  default: any = "https://firebasestorage.googleapis.com/v0/b/caderneta-2b6e4.appspot.com/o/default.jpg?alt=media&token=8efe0f7c-c9ac-4491-ac42-87988da46927";
+
   constructor(public navCtrl: NavController, public af: AngularFire, private _fb: FormBuilder, public http: Http, private navParams: NavParams) { }
 
 
@@ -27,8 +29,7 @@ export class RegistoPage_2 implements OnInit {
 
 
     this.form = this._fb.group({
-      firstName: "",
-      lastName: "",
+      name: "",
       genero: null,
       date: null,
       telemovel: null
@@ -36,18 +37,18 @@ export class RegistoPage_2 implements OnInit {
   }
 
 
-  concluir(model: User, isValid: boolean) {
-
+  concluir(model: any, isValid: boolean) {
 
     this.body = {
-      firstName: model.firstName,
-      lastName: model.lastName,
+      name: model.name,
       genero: model.genero,
-      dn: model.DN
+      telemovel: model.telemovel,
+      dn: model.date,
+      photoUrl: this.default
     }
 
 
-      this.http.patch('https://caderneta-2b6e4.firebaseio.com/encarregados/' + this.uid + '/.json', model)
+      this.http.patch('https://caderneta-2b6e4.firebaseio.com/encarregados/' + this.uid + '/.json', this.body)
       .subscribe(
       data => {
        this.navCtrl.setRoot(LoginPage);
