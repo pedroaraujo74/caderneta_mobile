@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController} from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http'
 import { RegistoPage_2 } from '../registo_page2/registo2';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
@@ -14,8 +14,11 @@ export class RegistoPage_1 implements OnInit {
 
   form: any;
   body: any;
-  codigo_disciplina: string = "-KY4Jl3N103L6kNd-liQ"
-  erroVazio: string = 'You must include credentials to use this auth method.';
+  v1:any = 0;
+  v2:any = 0;
+  v3:any = 0;
+  v4:any = 0;
+
   constructor(public navCtrl: NavController, public af: AngularFire, private _fb: FormBuilder, public http: Http, public toastCtrl: ToastController) { }
 
 
@@ -28,78 +31,81 @@ export class RegistoPage_1 implements OnInit {
     });
   }
 
-  registar(model: User, isValid: boolean) {
+  
+    registar(model: User, isValid: boolean) {
 
-    this.body = {
-      email: model.email,
-      password: model.password,
-      password2: model.password2,
-    }
-     let enviar = {
-       email: model.email,
-       codigo_disciplina: model.codigo_disciplina
-    }
+        this.body = {
+            email: model.email,
+            password: model.password,
+            password2: model.password2,
+        }
 
-    if (model.password != model.password2){
-        let toast3 = this.toastCtrl.create({
-            message: 'A password tem que ser igual',
-            duration: 3000
+
+        if(model.email == ""){
+            let toast3 = this.toastCtrl.create({
+            message: 'Email obrigatório',
+            duration: 4000
             });
             toast3.present();
-    }
-
-
-    else{
-        this.af.auth.createUser(this.body).then(res => {
-
-      this.http.put('https://caderneta-2b6e4.firebaseio.com/encarregados/' + res.uid + '/.json', enviar)
-        .subscribe(
-        data => {
-
-          console.log(data);
-          this.navCtrl.push(RegistoPage_2, {
-            codigo: this.codigo_disciplina,
-            uid: res.uid
-          });
-          
-
-        },
-        err => console.log(err)
-          
-        );
-      
-    }).catch(err => {
-      console.log(err);
-      if(err.toString() == this.erroVazio){
-          let toast0 = this.toastCtrl.create({
-            message: 'Preencha o(s) campo(s)',
-            duration: 3000
-            });
-            toast0.present();
-      }
-/*
-      switch (err.code){
-         case "auth/invalid-email":
-            let toast1 = this.toastCtrl.create({
-            message: 'Email mal formatado',
-            duration: 3000
-            });
-            toast1.present();
-
-         case "auth/wrong-password":
-            let toast2 = this.toastCtrl.create({
-            message: 'Password incorreta',
-            duration: 3000
-            });
-            toast2.present();        
         }
-        */
-      })
-    }
-    
-    }
+        else{
+            this.v1 = 1;
+        }
 
+        if(model.password == ""){
+            let toast3 = this.toastCtrl.create({
+            message: 'Password obrigatória',
+            duration: 4000
+            });
+            toast3.present();
+        }
+        else{
+            this.v2 = 1;
+        }
+
+        if(model.password2 == ""){
+            let toast3 = this.toastCtrl.create({
+            message: 'Password obrigatória',
+            duration: 4000
+            });
+            toast3.present();
+        }
+        else{
+            this.v3 = 1;
+        }
+
+        if (model.password != model.password2) {
+            let toast3 = this.toastCtrl.create({
+              message: 'Passwords diferentes',
+              duration: 4000
+            });
+            toast3.present();
+        }
+        else{
+            this.v4 = 1;
+        }
+
+        if(this.v1 == 1 && this.v2 == 1 && this.v3 == 1 && this.v4 == 1){
+            let enviar = {
+                email: model.email,
+            }
+            
+            this.af.auth.createUser(this.body).then(res => {
+
+            this.http.put('https://caderneta-2b6e4.firebaseio.com/encarregados/' + res.uid + '/.json', enviar)
+            .subscribe(
+                data => {
+                    this.navCtrl.push(RegistoPage_2, {
+                      uid: res.uid
+                    });
+                },
+                err => console.log(err)
+            );
+            
+        })
+    }
   }
+}
 
 
 

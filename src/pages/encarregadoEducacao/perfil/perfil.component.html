@@ -30,7 +30,7 @@
                 <img [src]="perfil.photoUrl">
             </div>
             <div class="titleNameEdit">
-                <h1>{{perfil.firstName}} {{perfil.lastName}}</h1>
+                <h1>{{perfil.name}}</h1>
             </div>
         </div>
         <div class="backgoundColorPeril">
@@ -42,23 +42,16 @@
                 </ion-list-header>
 
                 <ion-item>
-                    Nome próprio
+                    Nome completo
                     <ion-note item-right>
-                        {{perfil.firstName}}
-                    </ion-note>
-                </ion-item>
-
-                <ion-item>
-                    Apelido
-                    <ion-note item-right>
-                        {{perfil.lastName}}
+                        {{perfil.name}}
                     </ion-note>
                 </ion-item>
 
                 <ion-item>
                     Data de nascimento
                     <ion-note item-right>
-                        {{perfil.date}}
+                        {{perfil?.date}}
                     </ion-note>
                 </ion-item>
 

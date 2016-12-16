@@ -7,6 +7,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { StartPage } from '../start/start';
 
 //import { RegistoPage_2 } from '../registo/registo_page2/registo2';
+//import { RegistoPage_2 } from '../registo/registo_page2/registo2';
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`

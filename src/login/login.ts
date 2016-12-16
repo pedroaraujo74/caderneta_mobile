@@ -33,9 +33,8 @@ export class LoginPage implements OnInit {
 
   login(model: User, isValid: boolean) {
 
-    this.af.auth.login(model).then(res => {
+      this.af.auth.login(model).then(res => {
       this.navCtrl.setRoot(TabsPage);
-
 
     }).catch(err => {
       
@@ -46,31 +45,8 @@ export class LoginPage implements OnInit {
             });
             toast0.present();
       }
-/*
-      switch (err.code){
-         case "auth/invalid-email":
-            let toast1 = this.toastCtrl.create({
-            message: 'Email mal formatado',
-            duration: 3000
-            });
-            toast1.present();
-
-         case "auth/wrong-password":
-            let toast2 = this.toastCtrl.create({
-            message: 'Password incorreta',
-            duration: 3000
-            });
-            toast2.present();        
-        }
-
-        */
       })
       
     } 
     
-
-
-
-
-  
 }

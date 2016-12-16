@@ -35,7 +35,7 @@ teste(){
           //console.log("edit:"+this.edit);
           this.perfil = this.http.get('https://caderneta-2b6e4.firebaseio.com/encarregados/' + res.uid + '.json').subscribe(data => {
               this.perfil = data.json();
-              console.log(this.perfil.firstName);
+              console.log(this.perfil);
               this.form = this._fb.group({
                 firstName:[this.perfil.firstName, Validators.compose([Validators.required, Validators.maxLength(15)])],
                 lastName: [this.perfil.lastName, Validators.compose([Validators.required, Validators.maxLength(15)])],
