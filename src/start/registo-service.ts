@@ -29,7 +29,8 @@ export class AuthService {
     } else {
       return this.auth$.login({
         provider: AuthProviders.Facebook,
-        method: AuthMethods.Popup
+        method: AuthMethods.Popup,
+
       });
     }
 

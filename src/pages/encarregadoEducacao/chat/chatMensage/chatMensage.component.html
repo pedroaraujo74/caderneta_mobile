@@ -1,61 +1,73 @@
 <ion-header class="mensageHeaderTitle">
     <ion-navbar color="primary">
 
-      <ion-title>{{professor.disciplina}}<br>
-        <div>{{professor.name}}</div></ion-title>
-
-     </ion-navbar>
+        <ion-title>{{professor.disciplina}}
+            <br>
+            <div>{{professor.name}}</div>
+        </ion-title>
+     <ion-buttons end>
+      <button ion-button icon-only (click)="showPrompt()">
+        <ion-icon name="mail" color="#fff"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="ligar()" style="margin-left: 10px;">
+         <ion-icon name="call" color="#fff"></ion-icon>
+      </button>
+    </ion-buttons>
+        
+             
+      
+    </ion-navbar>
 </ion-header>
 
 <ion-content #content>
 
-        <ion-grid class="gridList">
-          <div *ngFor="let mensagem of chat | async">
-          <div *ngIf="mensagem.from == 0" style="text-align: left;">
-            <ion-row class="rowlist">
-                <ion-col width-10 class="col10">
-                    <div class="chatAvatar">
-                        <img [src]="professor?.photoUrl">
-                    </div>
-                </ion-col>
-                <ion-col width-90>
-                    <div class="chatMensageLeft">
-                          {{mensagem?.mensagem}}
-                    </div>
-                </ion-col>
-            </ion-row>
-
-            <!--
-           <ion-row>
-                <ion-col width-100 class="time">
-                    10:22
-                </ion-col>
-            </ion-row>
-            -->
-            </div>
+    <ion-grid class="gridList">
+        <div *ngFor="let mensagem of chat | async; let i = index;">
+            <div *ngIf="mensagem.from == 0" style="text-align: left;">
+<ion-row class="rowlist">
+    <ion-col width-10 class="col10">
+        <div class="chatAvatar">
+            <img [src]="professor?.photoUrl">
+        </div>
+    </ion-col>
+    <ion-col width-90>
+        <button (click)="isClicked[i] =! isClicked[i]" class="chatMensageLeft">
+            {{mensagem?.mensagem}}
+        </button>
+    </ion-col>
+</ion-row>
 
 
-            <div *ngIf="mensagem.from == 1" style="text-align: left;">
 
-            <ion-row class="rowlist">
-                <ion-col width-100>
-                    <div class="chatMensage">
-                        {{mensagem?.mensagem}}
-                    </div>
-                </ion-col>
-            </ion-row>
+<ion-row *ngIf="isClicked[i] == true">
+    <ion-col width-100 class="time">
+        {{mensagem?.data}}
+    </ion-col>
+</ion-row>
+</div>
 
-            <!--
-            <ion-row>
-                <ion-col width-100 class="time">
-                    10:24
-                </ion-col>
-            </ion-row>
-          -->
-      </div>
-      </div>
 
-    </ion-grid>
+<div *ngIf="mensagem.from == 1" style="text-align: left;">
+
+<ion-row class="rowlist">
+    <ion-col width-100>
+        <button (click)="isClicked[i] =! isClicked[i];" class="chatMensage">
+            {{mensagem?.mensagem}}
+        </button>
+    </ion-col>
+</ion-row>
+
+
+<ion-row *ngIf="isClicked[i] == true">
+    <ion-col width-100 class="time">
+        {{mensagem?.data}}
+    </ion-col>
+</ion-row>
+
+</div>
+</div>
+
+</ion-grid>
 
 </ion-content>
 
@@ -68,7 +80,7 @@
                 <button ion-button clear (click)="enviar()"><ion-icon name="send"></ion-icon></button>
             </ion-note>
         </ion-item>
-      </div>
+    </div>
 
 
 

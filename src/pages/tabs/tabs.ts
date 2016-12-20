@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { FeedComponent } from '../encarregadoEducacao/feed/feed.component';
-import { ChatChooseComponent } from '../encarregadoEducacao/chat/chatChoose/chatChoose.component';
-import { NotificacoesComponent } from '../encarregadoEducacao/notificacoes/notificacoes.component';
+import { ChatListComponent} from '../encarregadoEducacao/chat/chatList/chatList.component';
+import { HorarioComponent } from '../encarregadoEducacao/horario/horario.component';
 import { PerfilComponent } from '../encarregadoEducacao/perfil/perfil.component';
+
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  
+
   tab1Root: any = FeedComponent;
-  tab2Root: any = ChatChooseComponent;
-  tab3Root: any = NotificacoesComponent;
+  tab2Root: any = ChatListComponent;
+  tab3Root: any = HorarioComponent;
   tab4Root: any = PerfilComponent;
 
   constructor() {
-      
+   
   }
+
 }

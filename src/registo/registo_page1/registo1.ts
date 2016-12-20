@@ -4,7 +4,8 @@ import { Http } from '@angular/http'
 import { RegistoPage_2 } from '../registo_page2/registo2';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { User } from './registo.interface'
+import { User } from './registo.interface';
+import { Vibration } from 'ionic-native';
 
 @Component({
   templateUrl: 'registo1.html',
@@ -47,6 +48,7 @@ export class RegistoPage_1 implements OnInit {
             duration: 4000
             });
             toast3.present();
+            Vibration.vibrate(1000);
         }
         else{
             this.v1 = 1;
@@ -58,7 +60,8 @@ export class RegistoPage_1 implements OnInit {
             duration: 4000
             });
             toast3.present();
-        }
+            Vibration.vibrate(1000);
+        } 
         else{
             this.v2 = 1;
         }
@@ -69,6 +72,7 @@ export class RegistoPage_1 implements OnInit {
             duration: 4000
             });
             toast3.present();
+            Vibration.vibrate(1000);
         }
         else{
             this.v3 = 1;
@@ -80,6 +84,7 @@ export class RegistoPage_1 implements OnInit {
               duration: 4000
             });
             toast3.present();
+            Vibration.vibrate(1000);
         }
         else{
             this.v4 = 1;

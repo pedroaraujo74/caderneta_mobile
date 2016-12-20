@@ -60,27 +60,41 @@
 //// HOME ////
 /////////////
 
-
-/*
-.addIconHeader{
-    font-size: 28pt;
-}
-
-.item > ion-icon, .item-inner > ion-icon{
-    min-height: 2.2rem;
-    font-size: 2.2rem;
-    color: #acacac;
-}
-
-
-// BARRA COM OS BOTÕES PARA AVANCAR
-.btnRegisto{
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-*/
-
 .toast-message { 
     background-color: #f53d3d;
 }
+
+$loading-ios-background: #f53d3d;
+$loading-md-background: #f53d3d;
+
+.loading-container .loading{
+    background-color: red!important;
+}
+
+
+ion-loading {
+    background-color: #15A9FC;
+}
+
+ion-backdrop{
+    background-color: transparent!important;
+}
+
+.loading-wrapper {
+    background-color: transparent!important;
+    color: #FFF!important;
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0)!important;
+}
+
+.loading-ios .spinner-ios line, .loading-ios .spinner-ios-small line{
+    stroke: #FFF;
+}
+
+.loading-md .spinner-md line, .loading-md .spinner-md-small line{
+    stroke: #FFF;
+}
+
+.loading-md .spinner-crescent circle {
+    stroke: #FFF;
+}
+

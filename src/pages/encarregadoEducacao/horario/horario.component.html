@@ -1,0 +1,316 @@
+<ion-header>
+    <ion-toolbar color="primary">
+         <ion-title>Horário</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!-- LISTA NOTIFICAÇÔES -->
+
+    <ion-list>
+        <ion-list-header>
+            Segunda feira
+        </ion-list-header>
+        <span *ngFor="let item of segunda ; let i = index">
+          <span *ngIf="item.nome!=''">
+            <ion-item>
+
+                <h2>{{item?.nome}}</h2>
+              <!--  <p color="primary">Sala: <span color="grey">{{item.sala}}</span></p>-->
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Inicio</p>
+                        <p>{{item?.inicio}}</p>
+                </ion-note>
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Fim</p>
+                        <span *ngIf="item?.inicio=='09:00'">
+                          <p>10:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='10:00'">
+                          <p>11:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='11:00'">
+                          <p>12:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='12:00'">
+                          <p>13:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='13:00'">
+                          <p>14:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='14:00'">
+                          <p>15:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='15:00'">
+                          <p>16:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='16:00'">
+                          <p>17:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='17:00'">
+                          <p>18:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='18:00'">
+                          <p>19:00</p>
+                        </span>
+
+
+                </ion-note>
+
+
+            </ion-item>
+            </span>
+            <span *ngIf="item.nome=='' && item.inicio==1500 && segunda.length==1">
+              <ion-item>
+                <p>Não existem aulas agendadas para segunda-feira.</p>
+              </ion-item>
+            </span>
+          </span>
+        </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Terça feira
+        </ion-list-header>
+        <span *ngFor="let item of terca ; let i = index">
+          <span *ngIf="item.nome!=''">
+            <ion-item>
+                <h2>{{item?.nome}}</h2>
+              <!--  <p color="primary">Sala: <span color="grey">{{item.sala}}</span></p>-->
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Inicio</p>
+                        <p>{{item?.inicio}}</p>
+                </ion-note>
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Fim</p>
+                        <span *ngIf="item?.inicio=='09:00'">
+                          <p>10:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='10:00'">
+                          <p>11:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='11:00'">
+                          <p>12:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='12:00'">
+                          <p>13:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='13:00'">
+                          <p>14:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='14:00'">
+                          <p>15:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='15:00'">
+                          <p>16:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='16:00'">
+                          <p>17:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='17:00'">
+                          <p>18:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='18:00'">
+                          <p>19:00</p>
+                        </span>
+                </ion-note>
+
+            </ion-item>
+            </span>
+            <span *ngIf="item.nome==' ' && item.inicio==1500 && terca.length==1">
+            <ion-item>
+              <p>Não existem aulas agendadas para terça-feira.</p>
+            </ion-item>
+            </span>
+            </span>
+    </ion-list>
+
+
+
+    <ion-list>
+
+        <ion-list-header>
+            Quarta Feira
+        </ion-list-header>
+
+
+
+        <span *ngFor="let item of quarta ; let i = index">
+          <span *ngIf="item.nome!=''">
+            <ion-item>
+                <h2>{{item?.nome}}</h2>
+              <!--  <p color="primary">Sala: <span color="grey">{{item.sala}}</span></p> -->
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Inicio</p>
+                        <p>{{item?.inicio}}</p>
+                </ion-note>
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Fim</p>
+                        <span *ngIf="item?.inicio=='09:00'">
+                          <p>10:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='10:00'">
+                          <p>11:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='11:00'">
+                          <p>12:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='12:00'">
+                          <p>13:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='13:00'">
+                          <p>14:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='14:00'">
+                          <p>15:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='15:00'">
+                          <p>16:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='16:00'">
+                          <p>17:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='17:00'">
+                          <p>18:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='18:00'">
+                          <p>19:00</p>
+                        </span>
+                      </ion-note>
+
+                  </ion-item>
+                  </span>
+                  <span *ngIf="item.nome==' ' && item.inicio==1600 && quarta.length==1">
+                    <ion-item>
+                      <p>Não existem aulas agendadas para quarta-feira.</p>
+                    </ion-item>
+                  </span>
+                </span>
+
+
+
+    </ion-list>
+
+
+
+
+
+
+
+    <ion-list>
+        <ion-list-header>
+            Quinta Feira
+        </ion-list-header>
+        <span *ngFor="let item of quinta ; let i = index">
+          <span *ngIf="item.nome!=''">
+            <ion-item>
+                <h2>{{item?.nome}}</h2>
+              <!--  <p color="primary">Sala: <span color="grey">{{item.sala}}</span></p> -->
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Inicio</p>
+                        <p>{{item?.inicio}}</p>
+                </ion-note>
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Fim</p>
+                        <span *ngIf="item?.inicio=='09:00'">
+                          <p>10:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='10:00'">
+                          <p>11:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='11:00'">
+                          <p>12:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='12:00'">
+                          <p>13:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='13:00'">
+                          <p>14:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='14:00'">
+                          <p>15:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='15:00'">
+                          <p>16:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='16:00'">
+                          <p>17:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='17:00'">
+                          <p>18:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='18:00'">
+                          <p>19:00</p>
+                        </span>
+                      </ion-note>
+
+                  </ion-item>
+                  </span>
+                  <span *ngIf="item.nome==' ' && item.inicio==1600 && quinta.length==1">
+                    <ion-item>
+                      <p>Não existem aulas agendadas para quinta-feira.</p>
+                    </ion-item>
+                  </span>
+                </span>
+
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>
+            Sexta Feira
+        </ion-list-header>
+        <span *ngFor="let item of sexta ; let i = index">
+          <span *ngIf="item.nome!=''">
+            <ion-item>
+                <h2>{{item?.nome}}</h2>
+              <!--  <p color="primary">Sala: <span color="grey">{{item.sala}}</span></p> -->
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Inicio</p>
+                        <p>{{item?.inicio}}</p>
+                </ion-note>
+                <ion-note item-right style="text-align: center;">
+                        <p color="primary">Fim</p>
+                        <span *ngIf="item?.inicio=='09:00'">
+                          <p>10:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='10:00'">
+                          <p>11:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='11:00'">
+                          <p>12:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='12:00'">
+                          <p>13:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='13:00'">
+                          <p>14:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='14:00'">
+                          <p>15:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='15:00'">
+                          <p>16:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='16:00'">
+                          <p>17:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='17:00'">
+                          <p>18:00</p>
+                        </span>
+                        <span *ngIf="item?.inicio=='18:00'">
+                          <p>19:00</p>
+                        </span>
+                      </ion-note>
+
+                  </ion-item>
+                  </span>
+                  <span *ngIf="item.nome==' ' && item.inicio==1500 && sexta.length==1">
+                    <ion-item>
+                      <p>Não existem aulas agendadas para sexta-feira.</p>
+                    </ion-item>
+                  </span>
+                </span>
+    </ion-list>
+
+
+</ion-content>

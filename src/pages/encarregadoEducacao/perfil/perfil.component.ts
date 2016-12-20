@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular'
+import { NavController, NavParams, LoadingController } from 'ionic-angular'
 import { AngularFire } from 'angularfire2';
 import { Http } from '@angular/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { perfilEdit } from './perfil.interface'
+import { perfilEdit } from './perfil.interface';
+import {StartPage} from '../../../start/start';
+import { Camera } from 'ionic-native';
+import { tabs } from '../pages/tabs';
 
 
 @Component({
@@ -20,36 +23,48 @@ edit: any;
 body: any;
 name: any;
 form : FormGroup;
+loader: any;
 id: any;
+router: any;
+rootPage: any = StartPage;
+options:any;
+file: any;
+metadata: any;
+uploadTask: any;
+storageRef: any = firebase.storage().ref;
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire, private http: Http, private _fb: FormBuilder) {}
+
+
+constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire, private http: Http, private _fb: FormBuilder, public loadingCtrl: LoadingController) {}
+ionViewDidLoad() {
+    this.presentLoading();
+  }
 
 teste(){
   this.edit=0;
 }
 
   ngOnInit() {
+
       this.af.auth.subscribe(res => {
           this.edit=0;
           console.log(res.uid);
-          //console.log("edit:"+this.edit);
           this.perfil = this.http.get('https://caderneta-2b6e4.firebaseio.com/encarregados/' + res.uid + '.json').subscribe(data => {
+  console.log('data:'+data);
+  this.loader.dismiss();
               this.perfil = data.json();
-              console.log(this.perfil);
               this.form = this._fb.group({
-                firstName:[this.perfil.firstName, Validators.compose([Validators.required, Validators.maxLength(15)])],
-                lastName: [this.perfil.lastName, Validators.compose([Validators.required, Validators.maxLength(15)])],
+                name:[this.perfil.name, Validators.compose([Validators.required, Validators.maxLength(15)])],
                 date: this.perfil.date,
                 email: [this.perfil.email, Validators.compose([Validators.required, Validators.maxLength(50)])],
                 telemovel: [this.perfil.telemovel, Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)])],
                 filho: [this.perfil.filho, Validators.compose([Validators.required, Validators.maxLength(50)])],
-              
+
               });
 
                 });
                 this.form = this._fb.group({
-                  firstName: "",
-                  lastName: "",
+                  name: "",
                   date: "",
                   email: "",
                   telelemovel: "",
@@ -57,7 +72,6 @@ teste(){
                 });
 
           })
-      
     }
 
 
@@ -68,8 +82,7 @@ teste(){
 
     editar(model: perfilEdit, isValid: boolean) {
         this.body = {
-            firstName: model.firstName,
-            lastName: model.lastName,
+            name: model.name,
             date: model.date,
             email: model.email,
             telemovel: model.telemovel,
@@ -94,5 +107,30 @@ teste(){
         console.log(model);
 
     }
+
+    presentLoading() {
+  this.loader = this.loadingCtrl.create({
+    content: "A carregar...",
+  });
+
+  this.loader.present();
+}
+
+
+logout(){
+    this.af.auth.subscribe(res => {
+    this.af.auth.logout();
+    this.navCtrl.setRoot(StartPage);
+    
+    
+ 
+   let elem = <HTMLElement>document.querySelector(".tabbar");
+    if (elem != null) {
+      elem.style.display = 'none';
+    }
+
+  
+ });
+}
 
 }

@@ -14,16 +14,20 @@ import { TabsPage } from '../pages/tabs/tabs'
   templateUrl: 'start.html'
 })
 export class StartPage {
+  teste : any = false;
   private authState: FirebaseAuthState;
 
-  constructor(public navCtrl: NavController, public af: AngularFire, private http: Http, private _auth: AuthService) {}
+  constructor(public navCtrl: NavController, public af: AngularFire, private http: Http, private _auth: AuthService) {
+  
+
+  }
+
 
   goregisto(){
      this.navCtrl.push(LoginPage);
   }
 
   
-
     loginGoogle() {
 
       this._auth.signInWithGoogle()
@@ -48,15 +52,11 @@ export class StartPage {
 }
 
 
-signInWithFacebook(): void {
+signInWithFacebook() {
     
-    this._auth.signInWithFacebook()
-      .then(() => {
-            console.log("ola");
-            console.log(this._auth.displayName());
-            this.navCtrl.push(RegistoSocial);
-
-       })
+    
+    
+       
   }
 
 

@@ -1,7 +1,7 @@
 export interface User {
   firstName: string;
   lastName: string;
-  DN: Date;
+  date: Date;
   genero: Number;
   telemovel?: Number;
 }

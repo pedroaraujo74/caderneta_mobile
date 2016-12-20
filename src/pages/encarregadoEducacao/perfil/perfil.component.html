@@ -20,7 +20,7 @@
             </ion-buttons>
         </div>
     </ion-toolbar>
-</ion-header>   
+</ion-header>
 
 <ion-content class="contentPerfil">
     <!-- se a edição estiver desativada -->
@@ -30,7 +30,7 @@
                 <img [src]="perfil.photoUrl">
             </div>
             <div class="titleNameEdit">
-                <h1>{{perfil.name}}</h1>
+                <h1>{{perfil?.name}}</h1>
             </div>
         </div>
         <div class="backgoundColorPeril">
@@ -42,11 +42,13 @@
                 </ion-list-header>
 
                 <ion-item>
-                    Nome completo
+                    Nome
                     <ion-note item-right>
-                        {{perfil.name}}
+                        {{perfil?.name}}
                     </ion-note>
                 </ion-item>
+
+
 
                 <ion-item>
                     Data de nascimento
@@ -68,7 +70,7 @@
                 <ion-item>
                     Email
                     <ion-note item-right>
-                        {{perfil.email}}
+                        {{perfil?.email}}
                     </ion-note>
                 </ion-item>
 
@@ -76,7 +78,7 @@
                 <ion-item>
                     Telemóvel
                     <ion-note item-right>
-                        {{perfil.telemovel}}
+                        {{perfil?.telemovel}}
                     </ion-note>
                 </ion-item>
 
@@ -91,8 +93,7 @@
 
 
                 <ion-item class="encarregandosList">
-                    <h2>{{perfil.filho}}</h2>
-                    <ion-icon name="arrow-forward" item-right color="grey"></ion-icon>
+                    <h2>{{perfil?.filho}}</h2>
                 </ion-item>
 
             </ion-list>
@@ -100,7 +101,7 @@
             <ion-list class="itemInputColor2">
 
                 <ion-item class="encarregandosList">
-                    <h2 style="text-align: center;" color="primary">Terminar sessão</h2>
+                    <h2 style="text-align: center;" color="primary" (click)="logout()">Terminar sessão</h2>
                 </ion-item>
 
             </ion-list>
@@ -111,15 +112,17 @@
         <div class="contentFotoTitle">
             <div class="perfilAvatar">
                 <img [src]="perfil.photoUrl">
-
+                <!--
                 <div class="btnEditarFoto">
-                    <button ion-button>Editar</button>
+                    <button ion-button (click)="imagem()">Editar</button>
+                </div>
+                -->
+                <div class="titleNameEdit">
+                    <h1>{{perfil?.name}}</h1>
                 </div>
 
-                <div class="titleNameEdit">
-                    <h1>{{perfil.firstName}} {{perfil.lastName}}</h1>
-                </div>
             </div>
+
         </div>
 
        <div class="backgoundColorPeril">
@@ -132,14 +135,10 @@
                 </ion-list-header>
 
                 <ion-item class="ionItem">
-                    <ion-label color="textColor">Nome próprio</ion-label>
-                    <ion-input type="text" value="{{perfil.firstName}}" formControlName="firstName"></ion-input>
+                    <ion-label color="textColor">Nome</ion-label>
+                    <ion-input type="text" value="{{perfil.name}}" formControlName="name"></ion-input>
                 </ion-item>
 
-                <ion-item class="ionItem">
-                    <ion-label color="textColor">Apelido</ion-label>
-                    <ion-input type="text" value="{{perfil.lastName}}" formControlName="lastName"></ion-input>
-                </ion-item>
 
                 <ion-item class="ionItem">
                     <ion-label color="textColor">Data de nascimento</ion-label>
@@ -155,7 +154,7 @@
                     Contactos
                 </ion-list-header>
 
-                
+
 
                 <ion-item class="ionItem">
                     <ion-label color="textColor">Telemóvel</ion-label>
@@ -173,7 +172,7 @@
                 <ion-item class="ionItem2">
                     <ion-input type="text" value="{{perfil.filho}}" formControlName="filho"></ion-input>
                 </ion-item>
-            
+
             </ion-list>
         </form>
         </div>

@@ -2,114 +2,162 @@
     <ion-toolbar color="primary" no-border>
         <ion-title><img src="assets/img/logoBar.png"></ion-title>
         <ion-buttons end>
-            <button ion-button icon-only (click)="presentPopover($event)">
+            <button ion-button icon-only (click)="doRadio()">
                 <ion-icon name="more"></ion-icon>
             </button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  
-  <ion-searchbar>Procurar</ion-searchbar>
+  <!--
+    <ion-list radio-group>
+      <ion-list-header>Filtrar</ion-list-header>
 
+      <ion-item>
+          <ion-label>Todos</ion-label>
+          <ion-radio color="primary" (click)="filtrar(5)" checked="true"></ion-radio>
+      </ion-item>
+
+        <ion-item>
+            <ion-label>Avisos</ion-label>
+            <ion-radio color="danger" (click)="filtrar(4)" ></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Eventos</ion-label>
+            <ion-radio color="yellow" style="border-color: #FFF" (click)="filtrar(3)"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Sumários</ion-label>
+            <ion-radio color="green" (click)="filtrar(1)"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Trabalhos de casa</ion-label>
+            <ion-radio color="purple"  (click)="filtrar(2)"></ion-radio>
+        </ion-item>
+
+    </ion-list>
+-->
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+    <div *ngFor="let item of listFeed">
+        <div *ngIf="item.type == 1">
+            <ion-card >
+                <ion-item style="border-bottom: 1px solid #38dc5f; margin-bottom: 10px;">
+                    <ion-avatar item-left>
+                        <img [src]="item.photoUrl">
+                    </ion-avatar>
+                    <h2 color="green">{{item.disciplina}}<ion-badge color="green" style="margin-left: 8px">Sumário</ion-badge></h2>
+                    <p>{{item.createdBy}}</p>
+                </ion-item>
+
+                <ion-card-content>
+                    <p>{{item.desc}}</p>
+                </ion-card-content>
+
+                <ion-row>
+                    <ion-col>
+                        <button ion-button icon-left clear small color="green">
+                            <ion-icon name="calendar"></ion-icon>
+                            <div>Sumário de: {{item.eventDate | date:"dd/MM/yy"}}</div>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </div>
+
+    <div *ngIf="item.type==2">
       <ion-card>
-          <ion-item style="border-bottom: 1px solid #38dc5f; margin-bottom: 10px;">
+
+          <ion-item style="border-bottom: 1px solid #9340f0; margin-bottom: 10px">
               <ion-avatar item-left>
-                  <img src="assets/img/foto.jpg">
+                  <img [src]="item.photoUrl">
               </ion-avatar>
-              <h2 color="green">Matemática<ion-badge color="green" style="margin-left: 8px">Sumário</ion-badge></h2>
-              <p>André Martins</p>
+              <h2 color="purple">{{item.disciplina}}<ion-badge color="purple" style="margin-left: 8px">TPC</ion-badge></h2>
+              <p>{{item.createdBy}}</p>
           </ion-item>
 
           <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+              <p>{{item.desc}}</p>
           </ion-card-content>
 
           <ion-row>
               <ion-col>
-                  <button ion-button icon-left clear small color="green">
+                  <button ion-button icon-left clear small color="purple">
                       <ion-icon name="calendar"></ion-icon>
-                      <div>Sumário de: 12/12/2016</div>
+                      <div>Entrega até: {{item.eventDate | date:"dd/MM/yy"}}</div>
                   </button>
               </ion-col>
           </ion-row>
 
-    </ion-card>
+      </ion-card>
+    </div>
 
-    <ion-card>
+    <div *ngIf="item.type==3">
+      <ion-card>
 
-        <ion-item style="border-bottom: 1px solid #FFCB2B; margin-bottom: 10px">
-            <ion-avatar item-left>
-                <img src="assets/img/pedro.png">
-            </ion-avatar>
-            <h2 color="yellow">Evento<ion-badge color="yellow" style="margin-left: 8px; color: #FFF">Visita de estudo</ion-badge></h2>
-            <p>Pedro Araújo</p>
-        </ion-item>
+          <ion-item style="border-bottom: 1px solid #FFCB2B; margin-bottom: 10px">
+              <ion-avatar item-left>
+                  <img [src]="item.photoUrl">
+              </ion-avatar>
+              <h2 color="yellow">Evento<ion-badge color="yellow" style="margin-left: 8px; color: #FFF">Visita de estudo</ion-badge></h2>
+              <p>{{item.createdBy}}</p>
+          </ion-item>
 
-        <ion-card-content>
-          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-        </ion-card-content>
+          <ion-card-content>
+            <p>{{item.desc}}</p>
+          </ion-card-content>
 
-        <ion-row>
-            <ion-col>
-                <button ion-button icon-left clear small color="yellow">
-                    <ion-icon name="calendar"></ion-icon>
-                    <div>Data do evento: 12/12/2016</div>
-                </button>
-            </ion-col>
-        </ion-row>
+          <ion-row>
+              <ion-col>
+                  <button ion-button icon-left clear small color="yellow">
+                      <ion-icon name="calendar"></ion-icon>
+                      <div>Data do evento: {{item.eventDate | date:"dd/MM/yy"}}</div>
+                  </button>
+              </ion-col>
+          </ion-row>
 
-    </ion-card>
+      </ion-card>
 
-    <ion-card>
+    </div>
+    <div *ngIf="item.type==4">
+      <ion-card>
 
-        <ion-item style="border-bottom: 1px solid #9340f0; margin-bottom: 10px">
-            <ion-avatar item-left>
-                <img src="assets/img/vasco.png">
-            </ion-avatar>
-            <h2 color="purple">Matemática<ion-badge color="purple" style="margin-left: 8px">Trabalhos de casa</ion-badge></h2>
-            <p>Vasco Silva</p>
-        </ion-item>
+         <ion-item style="border-bottom: 1px solid #f53d3d; margin-bottom: 10px">
+             <ion-avatar item-left>
+                 <img [src]="item.photoUrl">
+             </ion-avatar>
+             <h2 color="danger">{{item.disciplina}}<ion-badge color="danger" style="margin-left: 8px">Aviso</ion-badge></h2>
+             <p>{{item.createdBy}}</p>
+         </ion-item>
 
-        <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-        </ion-card-content>
+         <ion-card-content>
+             <p>{{item.desc}}</p>
+         </ion-card-content>
 
-        <ion-row>
-            <ion-col>
-                <button ion-button icon-left clear small color="purple">
-                    <ion-icon name="calendar"></ion-icon>
-                    <div>Entrega até: 12/12/2016</div>
-                </button>
-            </ion-col>
-        </ion-row>
+         <ion-row>
+             <ion-col>
+                 <button ion-button icon-left clear small color="danger">
+                     <ion-icon name="calendar"></ion-icon>
+                     <div>Aviso de: {{item.dateCreation | date:"dd/MM/yy"}}</div>
+                 </button>
+             </ion-col>
+         </ion-row>
 
-    </ion-card>
+     </ion-card>
+    </div>
 
-     <ion-card>
+  </div>
 
-        <ion-item style="border-bottom: 1px solid #f53d3d; margin-bottom: 10px">
-            <ion-avatar item-left>
-                <img src="assets/img/vasco.png">
-            </ion-avatar>
-            <h2 color="danger">Lingua Portuguesa<ion-badge color="danger" style="margin-left: 8px">Aviso</ion-badge></h2>
-            <p>Vasco Silva</p>
-        </ion-item>
+<!--
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
-        <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-        </ion-card-content>
+-->
 
-        <ion-row>
-            <ion-col>
-                <button ion-button icon-left clear small color="danger">
-                    <ion-icon name="calendar"></ion-icon>
-                    <div>Aviso de: 12/12/2016</div>
-                </button>
-            </ion-col>
-        </ion-row>
 
-    </ion-card>
-    
+
 </ion-content>

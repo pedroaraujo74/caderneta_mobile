@@ -8,7 +8,9 @@ export class FilterPipe2 implements PipeTransform {
   transform(feedArray: any, term:any): any {
     if(term === undefined) return feedArray;
     return feedArray.filter(function(item){
-    return item.disciplina.toLowerCase().includes(term.toLowerCase());
+    if (item.disciplina.toLowerCase().includes(term.toLowerCase()) || item.name.toLowerCase().includes(term.toLowerCase())) {
+      return item.disciplina.toLowerCase();
+    }
     })
   }
 }

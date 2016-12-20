@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="primary">
-      <ion-searchbar></ion-searchbar>
+     <ion-title>Chat</ion-title>
       <!--
       <ion-buttons end class="novaMensagem">
             <button ion-button icon-only (click)="chatNew()">
@@ -15,21 +15,25 @@
     <!-- LISTA CONVERSAS -->
     <ion-list>
 
-<!-- ******************* 
-     *******************
+<!-- *******************
+     *******************aaa
      .mensagemOn e mensagemOnC ======> Quando tem notificação
 -->
-<div *ngFor="let item of professores | async">
-  <div *ngIf="item.codigo_turmas[0] == turma || item.codigo_turmas[1] == turma || item.codigo_turmas[2] == turma || item.codigo_turmas[3] == turma  || item.codigo_turmas[4] == turma || item.codigo_turmas[5] == turma || item.codigo_turmas[6] == turma">
-        <ion-item-sliding class="listChatTop">
+<span *ngFor="let item of encarregados | filterSearch2: term">
+  <span *ngIf="item.codigo_turmas[0] == turma || item.codigo_turmas[1] == turma || item.codigo_turmas[2] == turma || item.codigo_turmas[3] == turma  || item.codigo_turmas[4] == turma || item.codigo_turmas[5] == turma || item.codigo_turmas[6] == turma">
+
+        <ion-item-sliding class="listChatTop" *ngIf="item.notificacao_enc==true">
             <ion-item class="listChat" (click)="chatMensage($event, item.$key)">
                 <ion-avatar item-left class="avatarListChat">
                   <img [src]="item.photoUrl">
                 </ion-avatar>
-                <h2 class="mensagemOn" color="primary">{{item.disciplina}}</h2>
-                <h3 class="mensagemOn">{{item.name}}</h3>
-                <p class="mensagemOnC"></p>
-                <ion-note item-right class="timeChat mensagemOnC">3:43</ion-note>
+
+                  <h2 class="mensagemOn" color="primary">{{item?.disciplina}}</h2>
+                  <h3 class="mensagemOnC">{{item?.name}}</h3>
+                    <h3>{{item?.info?.mensagem}}</h3>
+
+
+            <ion-note item-right class="timeChat mensagemOnC">{{item?.info?.data}}</ion-note>
             </ion-item>
             <ion-item-options>
                 <button ion-button color="danger" icon-left>
@@ -38,8 +42,42 @@
                 </button>
             </ion-item-options>
         </ion-item-sliding>
-      </div>
-  </div>
+        </span>
+      </span>
+   
+
+
+
+<span *ngFor="let item of encarregados | filterSearch2: term">
+  <span *ngIf="item.codigo_turmas[0] == turma || item.codigo_turmas[1] == turma || item.codigo_turmas[2] == turma || item.codigo_turmas[3] == turma  || item.codigo_turmas[4] == turma || item.codigo_turmas[5] == turma || item.codigo_turmas[6] == turma">
+ 
+        <ion-item-sliding class="listChatTop" *ngIf="item.notificacao_enc==null || item.notificacao_enc==false">
+            <ion-item class="listChat" (click)="chatMensage($event, item.$key)">
+                <ion-avatar item-left class="avatarListChat">
+                  <img [src]="item.photoUrl">
+                </ion-avatar>
+
+                  <h2 color="primary">{{item?.disciplina}}</h2>
+                  <h3>{{item?.name}}</h3>
+                  <h3>{{item?.info?.mensagem}}</h3>
+
+            <!--  <div *ngIf="item.notificacao_enc==true">
+                <h2 class="mensagemOn" color="primary">{{item?.disciplina}}</h2>
+                <h3 class="mensagemOnC">{{item?.name}}</h3>
+              </div>
+            -->
+            <ion-note item-right class="timeChat mensagemOnC">{{item?.info?.data}}</ion-note>
+            </ion-item>
+            <ion-item-options>
+                <button ion-button color="danger" icon-left>
+                    <ion-icon name="trash"></ion-icon>
+                    Eliminar
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+      </span>
+ 
+</span>
 </ion-list>
 
 </ion-content>

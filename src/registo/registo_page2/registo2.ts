@@ -5,7 +5,9 @@ import { AngularFire } from 'angularfire2';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { User } from './registo.interface'
 import { NavParams } from 'ionic-angular';
-import { LoginPage } from '../../login/login'
+import { LoginPage } from '../../login/login';
+import { Vibration } from 'ionic-native';
+
 @Component({
   templateUrl: 'registo2.html'
 })
@@ -60,6 +62,7 @@ export class RegistoPage_2 implements OnInit {
             duration: 4000
             });
             toast3.present();
+            Vibration.vibrate(1000);
         }
         else{
             this.v1 = 1;
@@ -71,6 +74,7 @@ export class RegistoPage_2 implements OnInit {
             duration: 4000
             });
             toast3.present();
+             Vibration.vibrate(1000);
         }
         else{
             this.v2 = 1;
@@ -82,6 +86,7 @@ export class RegistoPage_2 implements OnInit {
             duration: 4000
             });
             toast3.present();
+             Vibration.vibrate(1000);
         }
         else{
             this.v3 = 1;
@@ -104,6 +109,7 @@ export class RegistoPage_2 implements OnInit {
                 duration: 3000
                 });
                 toast1.present();
+                 Vibration.vibrate(1000);
 
             }else{
 

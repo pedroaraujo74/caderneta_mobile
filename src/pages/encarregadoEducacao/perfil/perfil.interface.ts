@@ -1,6 +1,5 @@
 export interface perfilEdit {
-  firstName: string;
-  lastName: string;
+  name: string;
   date: string;
   email: string;
   telemovel: string;

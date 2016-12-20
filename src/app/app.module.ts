@@ -17,7 +17,7 @@ import { RegistoPage_1 } from '../registo/registo_page1/registo1';
 import { RegistoPage_2 } from '../registo/registo_page2/registo2';
 import { RegistoSocial } from '../registo/registo_social/registo_social';
 import { AuthService } from '../start/registo-service';
-
+import { FilterPipe } from '../pages/encarregadoEducacao/feed/filterPipe';
 
 //FEED
 import { FeedComponent } from '../pages/encarregadoEducacao/feed/feed.component';
@@ -31,10 +31,11 @@ import { ChatChooseComponent } from '../pages/encarregadoEducacao/chat/chatChoos
 import { ChatListComponent } from '../pages/encarregadoEducacao/chat/chatList/chatList.component';
 import { ChatMensageComponent } from '../pages/encarregadoEducacao/chat/chatMensage/chatMensage.component';
 import { ChatNewComponent } from '../pages/encarregadoEducacao/chat/chatNew/chatNew.component';
-//import { FilterPipe2 } from '../pages/encarregadoEducacao/chat/chatList/filterPipe2';
+import { FilterPipe2 } from '../pages/encarregadoEducacao/chat/chatList/filterPipe2';
+import { orderBy } from '../pages/encarregadoEducacao/chat/chatList/order';
 
 //NOTIFICAÇÕES
-import { NotificacoesComponent } from '../pages/encarregadoEducacao/notificacoes/notificacoes.component';
+import { HorarioComponent } from '../pages/encarregadoEducacao/horario/horario.component';
 
 const myFirebaseConfig = {
   apiKey: 'AIzaSyDMuTuGTOL0hANsZ7ZS11rY9vZtYABUVbM',
@@ -50,6 +51,7 @@ const myFirebaseAuthConfig = {
 @NgModule({
   declarations: [
     MyApp,
+    FilterPipe,
 
     //START
     StartPage,
@@ -74,10 +76,11 @@ const myFirebaseAuthConfig = {
     ChatListComponent,
     ChatMensageComponent,
     ChatNewComponent,
-    //FilterPipe2,
+    FilterPipe2,
+    orderBy,
 
     //NOTIICACOES
-    NotificacoesComponent,
+    HorarioComponent,
 
     //TABS
     TabsPage
@@ -114,7 +117,7 @@ const myFirebaseAuthConfig = {
     //FilterPipe2,
 
     //NOTIICACOES
-    NotificacoesComponent,
+    HorarioComponent,
 
     //PERFIL
     PerfilComponent,
@@ -124,6 +127,6 @@ const myFirebaseAuthConfig = {
 
   ],
   providers: [AuthService]
-  
+
 })
 export class AppModule { }

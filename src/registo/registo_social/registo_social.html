@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>
-            Registo
+            Perfil
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -15,9 +15,7 @@
                 <ion-label>Nome próprio</ion-label>
                 <ion-input type="text" placeholder="{{name}}" disabled></ion-input>
             </ion-item>
-
-            <!-- ULTIMO NOME -->
-        
+    
             <!-- DATA NASCIMENTO -->
             <ion-item>
                 <ion-label>Data de nascimento</ion-label>
@@ -32,18 +30,7 @@
 
         </ion-list>
 
-         <ion-item>
-                <ion-label>Codigo Disciplina</ion-label>
-                <ion-input type="text" formControlName="codigo_disciplina"></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Filho</ion-label>
-                <ion-input type="text" formControlName="filho"></ion-input>
-            </ion-item>
-
         <ion-list radio-group  formControlName="genero">
-
             <ion-item>
                 <ion-label color="labelInput">Masculino</ion-label>
                 <ion-radio value="0" checked="true"></ion-radio>
@@ -53,6 +40,20 @@
                 <ion-label color="labelInput">Feminino</ion-label>
                 <ion-radio value="1"></ion-radio>
             </ion-item>
+        </ion-list>
+
+        <ion-list>
+
+            <ion-item>
+                <ion-label>Código Turma</ion-label>
+                <ion-input type="text" formControlName="codigo_disciplina"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Nome do educando(a)</ion-label>
+                <ion-input type="text" formControlName="filho"></ion-input>
+            </ion-item>
+
         </ion-list>
 
         <!-- BUTTON SEGUINTE -->
